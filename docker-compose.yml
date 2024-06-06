@@ -1,0 +1,101 @@
+services:
+  web:
+    container_name: ${APP_HOME}-web
+    build:
+      context: .
+    command: bash -c "rm -f tmp/pids/server.pid &&  bundle exec rails s -p 3000 -b '0.0.0.0'"
+    ports:
+      - 3000:3000
+    depends_on:
+      db:
+        condition: service_healthy
+
+    tty: true
+    stdin_open: true
+    restart: always
+
+    environment:
+      TZ: ${TZ}
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_PORT: ${MYSQL_PORT}
+      RAILS_ENV: ${RAILS_ENV}
+
+    volumes:
+      - type: bind
+        source: .
+        target: /${APP_HOME}
+        consistency: consistent
+
+      - type: volume
+        source: bundle_install
+        target: /usr/local/bundle
+        consistency: delegated
+
+      - type: volume
+        source: node_modules
+        target: /${APP_HOME}/node_modules
+        consistency: delegated
+
+    healthcheck:
+      test: exit 0
+      interval: 30s
+      timeout: 5s
+      retries: 6
+      start_period: 30s
+  db:
+    container_name: ${APP_HOME}-db
+    image: mysql:8.0
+    platform: linux/amd64
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    tty: true
+    stdin_open: true
+    restart: always
+
+    environment:
+      TZ: ${TZ}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_HOST: ${MYSQL_ROOT_HOST}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_ALLOW_EMPTY_PASSWORD: ${MYSQL_ALLOW_EMPTY_PASSWORD}
+    volumes:
+      - type: volume
+        source: db_volume
+        target: /var/lib/mysql
+        consistency: cached
+
+      - type: volume
+        source: node_modules
+        target: /${APP_HOME}/node_modules
+        consistency: delegated
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "-u",
+          "root",
+          "-p$MYSQL_ROOT_PASSWORD",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 6
+      start_period: 30s
+
+volumes:
+  .:
+    driver: local
+  db_volume:
+    driver: local
+  bundle_install:
+    driver: local
+  node_modules:
+    driver: local
