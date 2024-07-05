@@ -10,9 +10,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+   super
+      notifier = Slack::Notifier.new(
+      ENV['SLACK_WEBHOOK_URL'],
+      channel: "##{ENV['SLACK_CHANNEL']}",
+      username: '通知です'
+    )
+notifier.ping '新しいユーザーが登録しました'
+
+
+  end
 
   # GET /resource/edit
   # def edit

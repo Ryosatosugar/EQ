@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :admins
-  
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
-    sessions     : 'users/sessions'
+    sessions: 'users/sessions'
   }
 
   devise_scope :user do
