@@ -58,6 +58,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
-group :development, :test do
-  gem 'dotenv-rails', groups: [:development, :test]
-end
+
+gem 'dotenv-rails'
+
+# スラックに通知機能追加
+gem 'slack-notifier' 
