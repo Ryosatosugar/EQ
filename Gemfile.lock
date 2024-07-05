@@ -198,6 +198,7 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
+    slack-notifier (2.4.0)
     spring (4.2.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
@@ -257,6 +258,7 @@ DEPENDENCIES
   rails-i18n
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
+  slack-notifier
   spring
   turbolinks (~> 5)
   tzinfo-data
