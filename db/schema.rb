@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2024_07_11_084129) do
 
   create_table "form_answers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.bigint "form_question_id", null: false
     t.string "name_form_answer"
     t.text "content_form_answer"
