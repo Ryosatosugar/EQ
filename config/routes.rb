@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :form_answers
+  resources :form_questions
   resources :admins
 
   devise_for :users, controllers: {

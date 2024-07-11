@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name form question:</strong>
+  <%= @form_question.name_form_question %>
+</p>
+
+<p>
+  <strong>Subject form question:</strong>
+  <%= @form_question.subject_form_question %>
+</p>
+
+<p>
+  <strong>Content form question:</strong>
+  <%= @form_question.content_form_question %>
+</p>
+
+<p>
+  <strong>Image form question:</strong>
+  <%= @form_question.image_form_question %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @form_question.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_form_question_path(@form_question) %> |
+<%= link_to 'Back', form_questions_path %>
