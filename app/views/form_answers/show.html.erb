@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @form_answer.user_id %>
+</p>
+
+<p>
+  <strong>Form question:</strong>
+  <%= @form_answer.form_question_id %>
+</p>
+
+<p>
+  <strong>Name form answer:</strong>
+  <%= @form_answer.name_form_answer %>
+</p>
+
+<p>
+  <strong>Content form answer:</strong>
+  <%= @form_answer.content_form_answer %>
+</p>
+
+<p>
+  <strong>Image form answer:</strong>
+  <%= @form_answer.image_form_answer %>
+</p>
+
+<p>
+  <strong>Best answer form answer:</strong>
+  <%= @form_answer.best_answer_form_answer %>
+</p>
+
+<%= link_to 'Edit', edit_form_answer_path(@form_answer) %> |
+<%= link_to 'Back', form_answers_path %>

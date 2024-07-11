@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_11_070745) do
+ActiveRecord::Schema.define(version: 2024_07_11_084129) do
+
+  create_table "form_answers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "form_question_id", null: false
+    t.string "name_form_answer"
+    t.text "content_form_answer"
+    t.string "image_form_answer"
+    t.boolean "best_answer_form_answer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["form_question_id"], name: "index_form_answers_on_form_question_id"
+    t.index ["user_id"], name: "index_form_answers_on_user_id"
+  end
 
   create_table "form_questions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name_form_question"
@@ -49,5 +62,7 @@ ActiveRecord::Schema.define(version: 2024_07_11_070745) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "form_answers", "form_questions"
+  add_foreign_key "form_answers", "users"
   add_foreign_key "form_questions", "users"
 end
