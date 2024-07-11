@@ -1,0 +1,2 @@
+class FormQuestion < ApplicationRecord
+end
