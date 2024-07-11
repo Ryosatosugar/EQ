@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2024_07_11_070745) do
     t.string "subject_form_question"
     t.text "content_form_question"
     t.string "image_form_question"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_form_questions_on_user_id"
