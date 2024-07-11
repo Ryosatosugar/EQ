@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :lockable, :timeoutable, :trackable, :confirmable and :omniauthable
   
   has_many :form_questions
+  has_many :form_answers
 end
