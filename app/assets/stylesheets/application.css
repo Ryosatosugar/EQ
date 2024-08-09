@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+div{
+    height:50px;
+}
+ .table_column{
+    width: 250px;
+    height:30px;
+    display: inline-block;
+    border: 1px black solid;
+   
+ }

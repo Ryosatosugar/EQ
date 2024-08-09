@@ -3,6 +3,7 @@ class AdminsController < ApplicationController
 
 
   def admin_users
+    @users = User.all
 
   end
 
