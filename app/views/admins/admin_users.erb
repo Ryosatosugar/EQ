@@ -1,2 +1,13 @@
 <h1> 管理者専用画面 </h1>
 <h1> ユーザー一覧 </h1>
+<% @users.each do |user| %>
+    <div>
+    <div class= "table_column"><%= user.id %></div>
+    <div class= "table_column"><%= user.email %></div>
+    <% if user.admin == true %>
+      <div class= "table_column"><%= user.admin %></div>
+    <% else %>
+    <div class= "table_column">無し</div>
+    <% end %>
+    </div>
+<% end %>

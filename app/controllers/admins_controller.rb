@@ -1,8 +1,9 @@
 class AdminsController < ApplicationController
-  before_action :set_admin, only: %i[ show edit update destroy ]
+  before_action :set_admin, only: %i[edit update destroy ]
 
 
   def admin_users
+    @users = User.all
 
   end
 
@@ -17,6 +18,7 @@ class AdminsController < ApplicationController
 
   # GET /admins/1 or /admins/1.json
   def show
+    @user = User.find_by(id: params[:id])
   end
 
   # GET /admins/new
@@ -67,12 +69,12 @@ class AdminsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # # Use callbacks to share common setup or constraints between actions.
     def set_admin
       @admin = Admin.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    # # Only allow a list of trusted parameters through.
     def admin_params
       params.fetch(:admin, {})
     end
