@@ -13,9 +13,10 @@ Rails.application.routes.draw do
   }
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
-    #root :to => "devise/sessions#new"
+    #root :to => "devis/sessions#new"
   end
  get "users/:id" => "admins#show"
+ get "users/:id/posts" => "admins#your_posts", as: "your_posts"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   #namespace :administrator do
