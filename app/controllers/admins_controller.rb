@@ -21,6 +21,10 @@ class AdminsController < ApplicationController
     @user = User.find_by(id: params[:id])
   end
 
+  def your_posts
+    @posts = FormQuestion.where(user_id: params[:id])
+  end
+
   # GET /admins/new
   def new
     @admin = Admin.new

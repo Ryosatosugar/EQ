@@ -1,0 +1,7 @@
+<h1> マイページ </h1>
+<h1> あなたの投稿 </h1>
+<% @posts.each do |post| %>
+    <%= post.subject_form_question %>
+    <%= post.content_form_question %>
+<% end %>
+

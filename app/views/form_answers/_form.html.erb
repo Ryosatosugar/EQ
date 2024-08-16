@@ -13,12 +13,16 @@
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <% if user_signed_in? %>
+      <%= form.text_field :user_id, value: current_user.id %>
+    <% else %>
+      <%= form.text_field :user_id %>
+    <% end %>
   </div>
 
   <div class="field">
     <%= form.label :form_question_id %>
-    <%= form.text_field :form_question_id %>
+    <%= form.text_field :form_question_id, value: params[:form_question_id] %>
   </div>
 
   <div class="field">

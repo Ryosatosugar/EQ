@@ -1,2 +1,10 @@
 <h1>Topページ</h1>
 <p>Find me in app/views/core_pages/top.html.erb</p>
+
+<li> <%= link_to "質問の作成", new_form_question_path %> </li>
+
+<% @form_questions.each do |form_question| %>
+    <%= form_question.subject_form_question %>
+    <%= form_question.content_form_question %>
+    <li> <%= link_to "回答の作成", new_form_answer_path(form_question_id: form_question.id) %> </li>
+<% end %>
