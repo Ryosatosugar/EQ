@@ -62,4 +62,10 @@ gem 'devise'
 gem 'dotenv-rails'
 
 # スラックに通知機能追加
-gem 'slack-notifier' 
+gem 'slack-notifier'
+
+gem 'dartsass-rails'
+
+gem 'bootstrap', '~> 5.3.3'
+
+gem 'jquery-rails'
