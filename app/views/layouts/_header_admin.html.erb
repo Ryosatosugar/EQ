@@ -1,12 +1,12 @@
-<li>
+<div>
     <%= link_to "ログアウト(管理者)", destroy_user_session_path, method: :delete %>
-</li>
+</div>
 
 <% if Rails.env.development? %>
-    <li>
+    <div>
         <%= link_to "登録情報", edit_user_registration_path %>
-    </li>
-    <li>
+    </div>
+    <div>
         <%= link_to "あなたの投稿", your_posts_path(current_user.id) %>
-    </li>
+    </div>
 <% end %>
