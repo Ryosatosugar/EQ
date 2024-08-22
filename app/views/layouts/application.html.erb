@@ -14,22 +14,14 @@
 
     <body>
 
-        <nav class="d-flex justify-content-end navbar bg-primary" data-bs-theme="dark">
+        <nav class="navbar bg-primary d-flex justify-content-end sticky-top" data-bs-theme="dark">
 
                 <div>
                     <%= link_to "Top", core_pages_top_path %>
                 </div>
                 <% if user_signed_in? %>
 
-                    <% if current_user.admin == true %>
-
-                        <%= render partial: 'layouts/header_admin' %>
-
-                    <% else %>
-
-                        <%= render partial: 'layouts/header_signedup_user' %>
-
-                    <% end %>
+                     <%= render partial: 'layouts/header_admin' %>
 
                 <% else %>
 
