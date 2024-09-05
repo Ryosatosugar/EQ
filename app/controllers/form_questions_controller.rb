@@ -9,6 +9,7 @@ class FormQuestionsController < ApplicationController
 
   # GET /form_questions/1 or /form_questions/1.json
   def show
+    
   end
 
   # GET /form_questions/new
