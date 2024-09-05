@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @form_questions.each do |form_question| %>
+    <% @questions.each do |form_question| %>
       <tr>
         <td><%= form_question.name_form_question %></td>
         <td><%= form_question.subject_form_question %></td>
@@ -23,8 +23,6 @@
         <td><%= form_question.image_form_question %></td>
         <td><%= form_question.user_id %></td>
         <td><%= link_to 'Show', form_question %></td>
-        <td><%= link_to 'Edit', edit_form_question_path(form_question) %></td>
-        <td><%= link_to 'Destroy', form_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

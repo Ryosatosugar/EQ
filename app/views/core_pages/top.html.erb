@@ -1,5 +1,11 @@
 <h1>Topページ</h1>
-<p>Find me in app/views/core_pages/top.html.erb</p>
+
+<%= search_form_for @q, class:"m-5" do |f| %>
+
+    <%= f.search_field :subject_form_question_cont, placeholder: "キーワードで検索" %>
+
+    <%= f.submit %>
+  <% end %>
 
 <div class="container">
     <% @form_questions.each do |form_question| %>
@@ -10,7 +16,7 @@
                     <div class="">質問：<%= form_question.content_form_question %></div>
                 </div>
                 <div class="list-group-item">
-                    <div class="">回答<%= form_question.form_answers.first %></div>
+                    <div class="">回答<%= form_question.form_answers.first(1) %></div>
                     <div>
                         <%= link_to "この質問に回答する", new_form_answer_path(form_question_id:
                         form_question.id) %>
