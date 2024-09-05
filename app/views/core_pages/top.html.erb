@@ -1,23 +1,24 @@
 <h1>Topページ</h1>
 
-
 <div class="container">
     <% @form_questions.each do |form_question| %>
         <div class="card p-3 m-3">
             <div class="list-group list-group-flush">
+                <%=link_to form_question_path(form_question.id) do %>
                 <div class="list-group-item">
                     <div class="">タイトル：<%= form_question.subject_form_question %></div>
                     <div class="">質問：<%= form_question.content_form_question %></div>
                 </div>
+                <% end %>
                 <div class="list-group-item">
-                    <div class="">回答<%= form_question.form_answers.first(1) %></div>
+                    <div class="">回答</div>
+                    <%= form_question.form_answers.first(1) %>
                     <div>
                         <%= link_to "この質問に回答する", new_form_answer_path(form_question_id:
                         form_question.id) %>
                     </div>
                 </div>
-            </div>
-
+             </div>
         </div>
     <% end %>
 </div>
