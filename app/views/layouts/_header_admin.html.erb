@@ -1,12 +1,12 @@
-<div class="mx-2 p-2">
+<div class="mx-2 p-2 <%= header_button %>">
     <%= link_to "ログアウト(管理者)", destroy_user_session_path, method: :delete %>
 </div>
 
 <% if Rails.env.development? %>
-    <div class="mx-2 p-2">
+    <div class="mx-2 p-2 <%= header_button %>">
         <%= link_to "登録情報", edit_user_registration_path %>
     </div>
-    <div class="mx-2 p-2">
+    <div class="mx-2 p-2 <%= header_button %>">
         <%= link_to "あなたの投稿", your_posts_path(current_user.id) %>
     </div>
 <% end %>
