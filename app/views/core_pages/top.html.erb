@@ -4,8 +4,8 @@
     <% @form_questions.each do |form_question| %>
         <div class="card p-3 m-3">
             <div class="list-group list-group-flush">
-                <%=link_to form_question_path(form_question.id) do %>
                 <div class="list-group-item">
+                    <%=link_to form_question_path(form_question.id) do %>
                     <div class="">タイトル：<%= form_question.subject_form_question %></div>
                     <div class="">質問：<%= form_question.content_form_question %></div>
                 </div>
