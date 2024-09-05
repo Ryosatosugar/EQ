@@ -1,11 +1,5 @@
 <h1>Topページ</h1>
 
-<%= search_form_for @q, class:"m-5" do |f| %>
-
-    <%= f.search_field :subject_form_question_cont, placeholder: "キーワードで検索" %>
-
-    <%= f.submit %>
-  <% end %>
 
 <div class="container">
     <% @form_questions.each do |form_question| %>

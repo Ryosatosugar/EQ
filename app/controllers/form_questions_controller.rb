@@ -4,7 +4,6 @@ class FormQuestionsController < ApplicationController
   # GET /form_questions or /form_questions.json
   def index
     @form_questions = FormQuestion.all
-    @q = FormQuestion.ransack(params[:q])
     @questions = @q.result(distinct: true)
   end
 
