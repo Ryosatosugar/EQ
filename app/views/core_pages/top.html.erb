@@ -1,11 +1,23 @@
 <h1>Topページ</h1>
 <p>Find me in app/views/core_pages/top.html.erb</p>
 
-
-<div class="card">
+<div class="container">
     <% @form_questions.each do |form_question| %>
-        <%= form_question.subject_form_question %>
-        <%= form_question.content_form_question %>
-        <li> <%= link_to "回答の作成", new_form_answer_path(form_question_id: form_question.id) %> </li>
+        <div class="card p-3 m-3">
+            <div class="list-group list-group-flush">
+                <div class="list-group-item">
+                    <div class="">タイトル：<%= form_question.subject_form_question %></div>
+                    <div class="">質問：<%= form_question.content_form_question %></div>
+                </div>
+                <div class="list-group-item">
+                    <div class="">回答<%= form_question.form_answers.first %></div>
+                    <div>
+                        <%= link_to "この質問に回答する", new_form_answer_path(form_question_id:
+                        form_question.id) %>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     <% end %>
 </div>
