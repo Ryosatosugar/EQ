@@ -13,7 +13,15 @@
 
   <div class="field">
     <%= form.label :name_form_question %>
+    <% if user_signed_in? %>
+
+    <%= form.text_field :name_form_question, {readonly: true, value: "#{current_user.name}" } %>
+
+    <% else %>
+
     <%= form.text_field :name_form_question %>
+
+    <% end %>
   </div>
 
   <div class="field">
