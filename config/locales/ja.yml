@@ -18,7 +18,7 @@ ja:
       form_answer:
         user_id: ユーザーID
         form_question_id: 質問番号
-        name_form_answer: 回答者
+        name_form_answer: ユーザーネーム
         content_form_answer: 内容
         image_form_answer: 画像
         best_answer_form_answer: ベストアンサー
