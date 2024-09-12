@@ -1,0 +1,24 @@
+ja:
+  activerecord:
+    models:
+      user: メンバー
+      form_question: 質問
+      form_answer: 回答
+    attributes:
+      user:
+        id: ID
+        email: Eメール
+        name: ユーザーネーム
+      form_question:
+        name_form_question: ユーザーネーム
+        subject_form_question: 概要(タイトル)
+        content_form_question: 内容
+        image_form_question: 画像
+        user: ユーザーID
+      form_answer:
+        user_id: ユーザーID
+        form_question_id: 質問番号
+        name_form_answer: 回答者
+        content_form_answer: 内容
+        image_form_answer: 画像
+        best_answer_form_answer: ベストアンサー
