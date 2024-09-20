@@ -88,5 +88,9 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
+  config.active_storage.service = :amazon
+
   config.action_mailer.delivery_method = :letter_opener_web
+
+  config.web_console.allowed_ips = '0.0.0.0/0'
 end
