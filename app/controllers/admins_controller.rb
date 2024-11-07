@@ -8,7 +8,7 @@ class AdminsController < ApplicationController
   end
 
   def admin_questions
-
+    @users_questions = FormQuestion.order(created_at: :desc)
   end
 
   # GET /admins or /admins.json

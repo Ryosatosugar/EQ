@@ -1,0 +1,18 @@
+<h1>
+    管理者専用画面
+</h1>
+<h1>
+    質問一覧
+</h1>
+
+<div class="container">
+    <% @users_questions.each do |users_question| %>
+        <div class="<%= table_row %>">
+            <div class="col-1 text-center <%= table_col %>"><%= users_question.user_id %></div>
+            <div class="col-3 text-center <%= table_col %>"><%= users_question.subject_form_question %></div>
+            <div class="col-4 text-center <%= table_col %>"><%= users_question.content_form_question %></div>
+            <div class="col-2 text-center <%= table_col %>"><%= users_question.created_at %></div>
+        
+        </div>
+    <% end %>
+</div>

@@ -12,23 +12,34 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :user_id %>
+    
     <% if user_signed_in? %>
-      <%= form.text_field :user_id, value: current_user.id %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
     <% else %>
-      <%= form.text_field :user_id %>
+      <%= form.hidden_field :user_id %>
     <% end %>
   </div>
 
   <div class="field">
-    <%= form.label :form_question_id %>
-    <%= form.text_field :form_question_id, value: params[:form_question_id] %>
+    
+    <%= form.hidden_field :form_question_id, value: params[:form_question_id] %>
   </div>
 
-  <div class="field">
+<div class="field">
     <%= form.label :name_form_answer %>
-    <%= form.text_field :name_form_answer %>
-  </div>
+
+    <% if user_signed_in? %>
+
+        <%= form.text_field :name_form_answer, {readonly: true, value:
+        "#{current_user.name}" } %>
+
+    <% else %>
+
+        <%= form.text_field :name_form_answer %>
+
+    <% end %>
+
+</div>
 
   <div class="field">
     <%= form.label :content_form_answer %>
@@ -40,10 +51,7 @@
     <%= form.text_field :image_form_answer %>
   </div>
 
-  <div class="field">
-    <%= form.label :best_answer_form_answer %>
-    <%= form.check_box :best_answer_form_answer %>
-  </div>
+  
 
   <div class="actions">
     <%= form.submit %>

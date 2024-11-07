@@ -13,7 +13,15 @@
 
   <div class="field">
     <%= form.label :name_form_question %>
-    <%= form.text_field :name_form_question %>
+    <% if user_signed_in? %>
+
+      <%= form.text_field :name_form_question, {readonly: true, value: "#{current_user.name}" } %>
+
+    <% else %>
+
+      <%= form.text_field :name_form_question %>
+
+    <% end %>
   </div>
 
   <div class="field">
@@ -32,9 +40,12 @@
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.file_field :image_form_question %>
   </div>
+
+
+    <%= form.hidden_field :user_id  %>
+
 
   <div class="actions">
     <%= form.submit %>

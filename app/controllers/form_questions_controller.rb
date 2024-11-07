@@ -4,10 +4,12 @@ class FormQuestionsController < ApplicationController
   # GET /form_questions or /form_questions.json
   def index
     @form_questions = FormQuestion.all
+    @questions = @q.result(distinct: true)
   end
 
   # GET /form_questions/1 or /form_questions/1.json
   def show
+    
   end
 
   # GET /form_questions/new
