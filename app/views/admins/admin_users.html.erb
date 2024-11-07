@@ -1,0 +1,20 @@
+<h1>
+    管理者専用画面
+</h1>
+<h1>
+    ユーザー一覧
+</h1>
+
+<div class= "container">
+    <% @users.each do |user| %>
+        <div class="<%= table_row %>">
+            <div class="col-1 text-center <%= table_col %>"><%= user.id %></div>
+            <div class="col-2 <%= table_col %>"><%= user.email %></div>
+            <% if user.admin == true %>
+                <div class="col-2 <%= table_col %>"><%= user.admin %></div>
+            <% else %>
+                <div class="col-2 <%= table_col %>">無し</div>
+            <% end %>
+        </div>
+    <% end %>
+</div>

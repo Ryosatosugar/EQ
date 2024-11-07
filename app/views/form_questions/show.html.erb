@@ -1,29 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="card p-3 m-3">
+    <div class="list-group list-group-flush">
 
-<p>
-  <strong>Name form question:</strong>
-  <%= @form_question.name_form_question %>
-</p>
+        <div class="list-group-item">
+            <div class="">タイトル：<%= @form_question.subject_form_question %></div>
 
-<p>
-  <strong>Subject form question:</strong>
-  <%= @form_question.subject_form_question %>
-</p>
+            <div class="">
+            質問者:
+                    <% if @form_question.user_id == nil %>
+                        <% if @form_question.name_form_question == nil %>
+                        名無しさん
+                        <% else %>
+                        <%= @form_question.name_form_question %>
+                        <% end %>
+                    <% else %>
+                    <%= @form_question.name_form_question %>
+                    <% end %>
 
-<p>
-  <strong>Content form question:</strong>
-  <%= @form_question.content_form_question %>
-</p>
+            </div>
 
-<p>
-  <strong>Image form question:</strong>
-  <%= @form_question.image_form_question %>
-</p>
+            <div class="">質問：<%= @form_question.content_form_question %></div>
+        </div>
+        <% @form_question.form_answers.each do |form_answer| %>
+            <div class="list-group-item">
+                <div class="">回答:<%= form_answer.content_form_answer %></div>
+            </div>
+        <% end %>
+        <div>
+            <%= link_to "この質問に回答する", new_form_answer_path(form_question_id:
+            @form_question.id) %>
+        </div>
+    </div>
 
-<p>
-  <strong>User:</strong>
-  <%= @form_question.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_form_question_path(@form_question) %> |
-<%= link_to 'Back', form_questions_path %>
+</div>

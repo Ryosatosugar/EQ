@@ -1,35 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+    <% @questions.each do |form_question| %>
+        <div class="card p-3 m-3">
+            <div class="list-group list-group-flush">
+                <div class="list-group-item">
+                    <div class="">タイトル：<%= form_question.subject_form_question %></div>
 
-<h1>Form Questions</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name form question</th>
-      <th>Subject form question</th>
-      <th>Content form question</th>
-      <th>Image form question</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+                    <div class="">
+                    質問者:
+                        <% if form_question.user_id == nil %>
+                            <% if form_question.name_form_question == nil %>
+                                名無しさん
+                            <% else %>
+                                <%= form_question.name_form_question %>
+                            <% end %>
+                        <% else %>
+                            <%= form_question.name_form_question %>
+                        <% end %>
 
-  <tbody>
-    <% @form_questions.each do |form_question| %>
-      <tr>
-        <td><%= form_question.name_form_question %></td>
-        <td><%= form_question.subject_form_question %></td>
-        <td><%= form_question.content_form_question %></td>
-        <td><%= form_question.image_form_question %></td>
-        <td><%= form_question.user_id %></td>
-        <td><%= link_to 'Show', form_question %></td>
-        <td><%= link_to 'Edit', edit_form_question_path(form_question) %></td>
-        <td><%= link_to 'Destroy', form_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+                    </div>
+
+                    <div class="">質問：<%= form_question.content_form_question %></div>
+                </div>
+                <div class="list-group-item">
+                    <div class="">回答<%= form_question.form_answers.first(1) %></div>
+                    <div>
+                        <%= link_to "この質問に回答する", new_form_answer_path(form_question_id:
+                        form_question.id) %>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Form Question', new_form_question_path %>
+</div>
