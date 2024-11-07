@@ -1,10 +1,39 @@
 <h1>Topページ</h1>
-<p>Find me in app/views/core_pages/top.html.erb</p>
 
-<li> <%= link_to "質問の作成", new_form_question_path %> </li>
+<div class="container">
+    <% @form_questions.each do |form_question| %>
+        <div class="card p-3 m-3">
+            <div class="list-group list-group-flush">
+                <div class="list-group-item">
+                    <%=link_to form_question_path(form_question.id) do %>
+                    <div class="">タイトル：<%= form_question.subject_form_question %></div>
 
-<% @form_questions.each do |form_question| %>
-    <%= form_question.subject_form_question %>
-    <%= form_question.content_form_question %>
-    <li> <%= link_to "回答の作成", new_form_answer_path(form_question_id: form_question.id) %> </li>
-<% end %>
+                    <div class="">
+                    質問者:
+                    <% if form_question.user_id == nil %>
+                        <% if form_question.name_form_question == nil %>
+                            名無しさん
+                        <% else %>
+                            <%= form_question.name_form_question %>
+                        <% end %>
+                    <% else %>
+                        <%= form_question.name_form_question %>
+                    <% end %>
+
+                    </div>
+
+                    <div class="">質問：<%= form_question.content_form_question %></div>
+                </div>
+                <% end %>
+                <div class="list-group-item">
+                    <div class="">回答</div>
+                    <%= form_question.form_answers.first(1) %>
+                    <div>
+                        <%= link_to "この質問に回答する", new_form_answer_path(form_question_id:
+                        form_question.id) %>
+                    </div>
+                </div>
+             </div>
+        </div>
+    <% end %>
+</div>
