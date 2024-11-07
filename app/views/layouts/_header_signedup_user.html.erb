@@ -1,9 +1,10 @@
-<li>
+<div class="<%= header_button %>"> <%= link_to "質問の作成", new_form_question_path %> </div>
+<div class="<%= header_button %>">
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-</li>
-<li>
+</div>
+<div class="<%= header_button %>">
     <%= link_to "登録情報", edit_user_registration_path %>
-</li>
-<li>
+</div>
+<div class="<%= header_button %>">
     <%= link_to "あなたの投稿", your_posts_path(current_user.id) %>
-</li>
+</div>
