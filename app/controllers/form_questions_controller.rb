@@ -9,7 +9,7 @@ class FormQuestionsController < ApplicationController
 
   # GET /form_questions/1 or /form_questions/1.json
   def show
-    
+
   end
 
   # GET /form_questions/new
@@ -27,7 +27,7 @@ class FormQuestionsController < ApplicationController
 
     respond_to do |format|
       if @form_question.save
-        format.html { redirect_to form_question_url(@form_question), notice: "Form question was successfully created." }
+        format.html { redirect_to form_question_url(@form_question), notice: "投稿が完了しました" }
         format.json { render :show, status: :created, location: @form_question }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class FormQuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @form_question.update(form_question_params)
-        format.html { redirect_to form_question_url(@form_question), notice: "Form question was successfully updated." }
+        format.html { redirect_to form_question_url(@form_question), notice: "更新が完了しました" }
         format.json { render :show, status: :ok, location: @form_question }
       else
         format.html { render :edit, status: :unprocessable_entity }

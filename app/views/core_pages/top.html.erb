@@ -23,7 +23,16 @@
                     </div>
 
                     <div class="">質問：<%= form_question.content_form_question %></div>
+
+                    
+
                 </div>
+
+                <% if form_question.image_form_question.attached? %>
+                    <%= image_tag url_for(form_question.image_form_question) , class: "img-thumbnail" %>
+                <% end %>
+
+
                 <% end %>
                 <div class="list-group-item">
                     <div class="">回答</div>
