@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Print Images</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>User</th>
+      <th>Category</th>
+      <th>Event</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @print_images.each do |print_image| %>
+      <tr>
+        <td><%= print_image.image %></td>
+        <td><%= print_image.user_id %></td>
+        <td><%= print_image.category_id %></td>
+        <td><%= print_image.event_id %></td>
+        <td><%= link_to 'Show', print_image %></td>
+        <td><%= link_to 'Edit', edit_print_image_path(print_image) %></td>
+        <td><%= link_to 'Destroy', print_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Print Image', new_print_image_path %>
