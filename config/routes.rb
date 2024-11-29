@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :print_images
+  resources :events
+  resources :categories
   root :to => "core_pages#top"
   get 'core_pages/top'
   resources :form_answers
