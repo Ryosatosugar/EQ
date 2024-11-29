@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :form_questions
   has_many :form_answers
+  has_many :print_images
 
   validates :name, presence: true
 end

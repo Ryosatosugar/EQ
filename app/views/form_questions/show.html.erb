@@ -18,7 +18,13 @@
 
             </div>
 
+
             <div class="">質問：<%= @form_question.content_form_question %></div>
+
+            <% if @form_question.image_form_question.attached? %>
+                <%= image_tag url_for(@form_question.image_form_question) , class: "img-thumbnail" %>
+            <% end %>
+
         </div>
         <% @form_question.form_answers.each do |form_answer| %>
             <div class="list-group-item">
