@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_11_28_094519) do
+ActiveRecord::Schema.define(version: 2024_12_12_051437) do
 
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -94,6 +94,8 @@ ActiveRecord::Schema.define(version: 2024_11_28_094519) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
+    t.text "print_image"
+    t.text "explanation"
     t.index ["category_id"], name: "index_print_images_on_category_id"
     t.index ["event_id"], name: "index_print_images_on_event_id"
     t.index ["user_id"], name: "index_print_images_on_user_id"
