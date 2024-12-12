@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   root :to => "core_pages#top"
   get 'core_pages/top'
   resources :form_answers
-  resources :form_questions
   resources :admins
   get "admin_users" => "admins#admin_users"
   get "admin_questions" =>"admins#admin_questions"
