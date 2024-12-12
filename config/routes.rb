@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  get "print_images/user_index" => "print_images#user_index"
+  get "print_images/user_show" => "print_images#user_show"
+  get "single_post/user_index" => "single_post#user_index"
+  get "single_post/user_show" => "single_post#user_show"
+
   resources :single_posts
   resources :print_images
   resources :events

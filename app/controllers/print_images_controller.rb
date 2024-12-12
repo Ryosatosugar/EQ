@@ -6,8 +6,15 @@ class PrintImagesController < ApplicationController
     @print_images = PrintImage.all
   end
 
+  def user_index
+    @print_images = PrintImage.all
+  end
+
   # GET /print_images/1 or /print_images/1.json
   def show
+  end
+
+  def user_show
   end
 
   # GET /print_images/new

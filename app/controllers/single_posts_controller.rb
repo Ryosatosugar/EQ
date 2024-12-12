@@ -6,9 +6,17 @@ class SinglePostsController < ApplicationController
     @single_posts = SinglePost.all
   end
 
+  def user_index
+    @single_posts = SinglePost.all
+  end
+
   # GET /single_posts/1 or /single_posts/1.json
   def show
   end
+
+  def user_show
+  end
+
 
   # GET /single_posts/new
   def new
