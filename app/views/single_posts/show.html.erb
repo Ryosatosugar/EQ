@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Single post image:</strong>
+  <%= @single_post.single_post_image %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @single_post.user_id %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @single_post.category_id %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @single_post.event_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @single_post.name %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @single_post.subject %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @single_post.content %>
+</p>
+
+<%= link_to 'Edit', edit_single_post_path(@single_post) %> |
+<%= link_to 'Back', single_posts_path %>
