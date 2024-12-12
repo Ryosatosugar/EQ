@@ -2,14 +2,14 @@ class AdminsController < ApplicationController
   before_action :set_admin, only: %i[edit update destroy ]
 
 
-  def admin_users
-    @users = User.all
+  # def admin_users
+  #   @users = User.all
 
-  end
+  # end
 
-  def admin_questions
-    @users_questions = FormQuestion.order(created_at: :desc)
-  end
+  # def admin_questions
+  #   @users_questions = FormQuestion.order(created_at: :desc)
+  # end
 
   # GET /admins or /admins.json
   def index
