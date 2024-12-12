@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Single Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Single post image</th>
+      <th>User</th>
+      <th>Category</th>
+      <th>Event</th>
+      <th>Name</th>
+      <th>Subject</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @single_posts.each do |single_post| %>
+      <tr>
+        <td><%= single_post.single_post_image %></td>
+        <td><%= single_post.user_id %></td>
+        <td><%= single_post.category_id %></td>
+        <td><%= single_post.event_id %></td>
+        <td><%= single_post.name %></td>
+        <td><%= single_post.subject %></td>
+        <td><%= single_post.content %></td>
+        <td><%= link_to 'Show', single_post %></td>
+        <td><%= link_to 'Edit', edit_single_post_path(single_post) %></td>
+        <td><%= link_to 'Destroy', single_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Single Post', new_single_post_path %>
