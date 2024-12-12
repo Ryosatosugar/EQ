@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_12_12_051437) do
+ActiveRecord::Schema.define(version: 2024_12_12_053520) do
 
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -101,6 +101,21 @@ ActiveRecord::Schema.define(version: 2024_12_12_051437) do
     t.index ["user_id"], name: "index_print_images_on_user_id"
   end
 
+  create_table "single_posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.text "single_post_image"
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "event_id", null: false
+    t.string "name"
+    t.string "subject"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_single_posts_on_category_id"
+    t.index ["event_id"], name: "index_single_posts_on_event_id"
+    t.index ["user_id"], name: "index_single_posts_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -137,4 +152,7 @@ ActiveRecord::Schema.define(version: 2024_12_12_051437) do
   add_foreign_key "print_images", "categories"
   add_foreign_key "print_images", "events"
   add_foreign_key "print_images", "users"
+  add_foreign_key "single_posts", "categories"
+  add_foreign_key "single_posts", "events"
+  add_foreign_key "single_posts", "users"
 end

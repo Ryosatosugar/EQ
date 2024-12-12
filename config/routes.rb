@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :single_posts
   resources :print_images
   resources :events
   resources :categories
