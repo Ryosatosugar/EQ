@@ -17,12 +17,7 @@
         <nav
             class="navbar bg-primary d-flex justify-content-end sticky-top"
             data-bs-theme="dark">
-            <%= search_form_for @q, class:"" do |f| %>
-
-            <%= f.search_field :subject_form_question_cont, placeholder: "キーワードで検索" %>
-
-            <%= f.submit %>
-        <% end %>
+       
 
         <div class="<%= header_button %>">
             <%= link_to "Top", core_pages_top_path %>

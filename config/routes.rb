@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
+
+  get "print_images/user_index" => "print_images#user_index"
+  get "print_images/user_show" => "print_images#user_show"
+  get "single_posts/user_index" => "single_posts#user_index"
+  get "single_posts/user_show" => "single_posts#user_show"
+
+  resources :single_posts
   resources :print_images
   resources :events
   resources :categories
   root :to => "core_pages#top"
   get 'core_pages/top'
   resources :form_answers
-  resources :form_questions
   resources :admins
   get "admin_users" => "admins#admin_users"
   get "admin_questions" =>"admins#admin_questions"
