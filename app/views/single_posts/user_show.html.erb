@@ -1,5 +1,16 @@
 userが見る単発おもちゃshow
 
+
+<tr>
+      <td><%= @single_post.single_post_image %></td>
+      <td><%= @single_post.category.category_name %></td>
+      <td><%= @single_post.event.event_name %></td>
+      <td><%= @single_post.name %></td>
+      <td><%= @single_post.subject %></td>
+      <td><%= @single_post.content %></td>
+</tr>
+
+
 <li>
     <%= link_to "userが見る単発投稿index", single_posts_user_index_path %>
 </li>
