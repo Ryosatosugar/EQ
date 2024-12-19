@@ -9,6 +9,7 @@
       <td><%= single_post.name %></td>
       <td><%= single_post.subject %></td>
       <td><%= single_post.content %></td>
+      <%= link_to "詳しく見る", single_posts_user_show_path(single_post.id) %>
     </tr>
 <% end %>
 
