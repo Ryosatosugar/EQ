@@ -73,6 +73,6 @@ class PrintImagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def print_image_params
-      params.require(:print_image).permit(:image, :user_id, :category_id, :event_id)
+      params.require(:print_image).permit(:image, :user_id, :category_id, :event_id, :explanation, :print_images => [])
     end
 end
