@@ -16,7 +16,11 @@
   <tbody>
     <% @print_images.each do |print_image| %>
       <tr>
-        <td><%= print_image.image %></td>
+      <td><% if print_image.image.attached? %>
+      <%= image_tag print_image.image, size: "150x150" %><br>
+      <%else%>
+      <img src="http://placehold.jp/150x150"><br>
+      <%end%></td>
         <td><%= print_image.user_id %></td>
         <td><%= print_image.category_id %></td>
         <td><%= print_image.event_id %></td>
@@ -30,6 +34,6 @@
 
 <br>
 
-<%= link_to 'New Print Image', new_print_image_path %>
+<%= link_to '新しく追加する', new_print_image_path %>
 
 アドミン用
