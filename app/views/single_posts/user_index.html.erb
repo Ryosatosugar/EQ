@@ -1,9 +1,20 @@
 ユーザーが見る単発おもちゃindex
 
+
+<% @single_posts.each do |single_post| %>
+    <tr>
+      <td><%= single_post.single_post_image %></td>
+      <td><%= single_post.category.category_name %></td>
+      <td><%= single_post.event.event_name %></td>
+      <td><%= single_post.name %></td>
+      <td><%= single_post.subject %></td>
+      <td><%= single_post.content %></td>
+      <%= link_to "詳しく見る", single_posts_user_show_path(single_post.id) %>
+    </tr>
+<% end %>
+
+
 <li>
     <%= link_to "topページへ", core_pages_top_path %>
 </li>
 
-<li>
-    <%= link_to "userが見るshowページへ", single_posts_user_show_path %>
-</li>

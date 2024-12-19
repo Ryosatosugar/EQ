@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @print_image.image %>
+<% if @print_image.print_images.attached? %>
+            <% @print_image.print_images.each do |image| %>
+                <%= image_tag image.url, size: "150x150" %>
+            <% end %>
+        <%else%>
+            <img src="http://placehold.jp/150x150"><br>
+        <%end%>
 </p>
 
 <p>
