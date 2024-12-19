@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get "print_images/user_index" => "print_images#user_index"
-  get "print_images/user_show" => "print_images#user_show"
+  get "print_images/user_show/:id", to: "print_images#user_show", as: "print_images_user_show"
   get "single_posts/user_index" => "single_posts#user_index"
   get "single_posts/user_show" => "single_posts#user_show"
 

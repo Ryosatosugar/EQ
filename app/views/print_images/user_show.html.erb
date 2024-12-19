@@ -1,5 +1,11 @@
 userが見る印刷テンプレートshow
 
+<tr>
+      <td><%= @print_image.image %></td>
+      <td><%= @print_image.category.category_name %></td>
+      <td><%= @print_image.event.event_name %></td>
+</tr>
+
 <li>
     <%= link_to "userが見る印刷テンプレートindex", print_images_user_index_path %>
 </li>

@@ -1,9 +1,18 @@
 userが見る印刷テンプレートindex
 
+
+
+<% @print_images.each do |print_image| %>
+    <tr>
+      <td><%= print_image.image %></td>
+      <td><%= print_image.category.category_name %></td>
+      <td><%= print_image.event.event_name %></td>
+      <%= link_to "個別ページへ", print_images_user_show_path(print_image.id) %>
+    </tr>
+<% end %>
+
+
 <li>
     <%= link_to "topページへ", core_pages_top_path %>
 </li>
 
-<li>
-    <%= link_to "userが見るshowページへ", print_images_user_show_path %>
-</li>
