@@ -15,6 +15,7 @@ class PrintImagesController < ApplicationController
   end
 
   def user_show
+    @print_image = PrintImage.find(params[:id])
   end
 
   # GET /print_images/new
