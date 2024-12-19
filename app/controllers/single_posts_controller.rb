@@ -15,6 +15,7 @@ class SinglePostsController < ApplicationController
   end
 
   def user_show
+    @single_post = SinglePost.find(params[:id])
   end
 
 
