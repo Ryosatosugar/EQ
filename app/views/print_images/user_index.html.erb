@@ -7,7 +7,7 @@ userが見る印刷テンプレートindex
       <td><%= print_image.image %></td>
       <td><%= print_image.category.category_name %></td>
       <td><%= print_image.event.event_name %></td>
-      <%= link_to "個別ページへ", print_images_user_show_path(print_image.id) %>
+      <%= link_to "詳しく見る", print_images_user_show_path(print_image.id) %>
     </tr>
 <% end %>
 
