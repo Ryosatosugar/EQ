@@ -4,7 +4,11 @@ userが見る印刷テンプレートindex
 
 <% @print_images.each do |print_image| %>
     <tr>
-      <td><%= print_image.image %></td>
+    <% if print_image.image.attached? %>
+    <%= image_tag print_image.image, size: "150x150" %><br>
+    <%else%>
+    <img src="http://placehold.jp/150x150"><br>
+    <%end%>
       <td><%= print_image.category.category_name %></td>
       <td><%= print_image.event.event_name %></td>
       <%= link_to "詳しく見る", print_images_user_show_path(print_image.id) %>

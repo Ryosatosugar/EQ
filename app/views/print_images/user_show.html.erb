@@ -1,7 +1,14 @@
 userが見る印刷テンプレートshow
 
 <tr>
-      <td><%= @print_image.image %></td>
+        <% if @print_image.print_images.attached? %>
+            <% @print_image.print_images.each do |image| %>
+                <%= image_tag image.url, size: "150x150" %>
+            <% end %>
+        <%else%>
+            <img src="http://placehold.jp/150x150"><br>
+        <%end%>
+
       <td><%= @print_image.category.category_name %></td>
       <td><%= @print_image.event.event_name %></td>
 </tr>
