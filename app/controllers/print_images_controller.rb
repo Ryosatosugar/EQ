@@ -7,7 +7,10 @@ class PrintImagesController < ApplicationController
   end
 
   def user_index
-    @print_images = PrintImage.all
+    logger.debug "Params: #{params[:q]}"
+    @q = Event.ransack(params[:q])
+    logger.debug "Ransack Query: #{@q.inspect}"
+    @search_results = @q.result(distinct: true).includes(print_images: { image_attachment: :blob })
   end
 
   # GET /print_images/1 or /print_images/1.json
