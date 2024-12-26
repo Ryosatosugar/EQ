@@ -1,20 +1,18 @@
 userが見る印刷テンプレートindex
 
 <%= search_form_for @q, url: print_images_user_index_path do |f| %>
-  <%= f.select :event_name_cont, options_from_collection_for_select(Event.all, :event_name, :event_name, selected: params.dig(:q, :event_name_cont)), prompt: "イベントを選択" %>
+  <%= f.collection_select :event_name_cont, Event.select("event_name").distinct, :event_name, :event_name,  include_blank: '選択して下さい' %>
   <%= f.submit "検索" %>
 <% end %>
 
-<p>繰り返し処理前に送信された値<%= params[:q] %></p>
+
 
 <% @search_results.each do |event| %>
   <h2><%= event.event_name %></h2>
-  <p>繰り返し処理1回目に送信された値<%= params[:q] %></p>
-  <p>繰り返し処理1回目に表示された値<%= event.id %></p>
+
 
   <% event.print_images.each do |print_image| %>
-    <p>繰り返し処理2回目に送信された値<%= params[:q] %></p>
-    <p>繰り返し処理2回目に表示された値<%= event.id %></p>
+
     <tr>
     <td><% if print_image.image.attached? %>
       <%= image_tag print_image.image, size: "150x150" %><br>
