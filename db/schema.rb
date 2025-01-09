@@ -12,16 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2025_01_09_065703) do
 
-  create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "body", size: :long
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
-  end
-
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -64,26 +54,13 @@ ActiveRecord::Schema.define(version: 2025_01_09_065703) do
 
   create_table "form_answers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "form_question_id", null: false
     t.string "name_form_answer"
     t.text "content_form_answer"
     t.string "image_form_answer"
     t.boolean "best_answer_form_answer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["form_question_id"], name: "index_form_answers_on_form_question_id"
     t.index ["user_id"], name: "index_form_answers_on_user_id"
-  end
-
-  create_table "form_questions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name_form_question"
-    t.string "subject_form_question"
-    t.text "content_form_question"
-    t.string "image_form_question"
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_form_questions_on_user_id"
   end
 
   create_table "print_images", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -146,9 +123,7 @@ ActiveRecord::Schema.define(version: 2025_01_09_065703) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "form_answers", "form_questions"
   add_foreign_key "form_answers", "users"
-  add_foreign_key "form_questions", "users"
   add_foreign_key "print_images", "categories"
   add_foreign_key "print_images", "events"
   add_foreign_key "print_images", "users"
