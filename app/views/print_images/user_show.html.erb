@@ -4,6 +4,9 @@ userが見る印刷テンプレートshow
         <% if @print_image.print_images.attached? %>
             <% @print_image.print_images.each do |image| %>
                 <%= image_tag image.url, size: "150x150" %>
+
+                <%= link_to '画像をダウンロード', download_image_print_image_path(@print_image, image.id), class: 'btn btn-primary' %>
+                <%= image %>
             <% end %>
         <%else%>
             <img src="http://placehold.jp/150x150"><br>

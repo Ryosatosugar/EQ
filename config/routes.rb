@@ -8,6 +8,13 @@ Rails.application.routes.draw do
 
   resources :single_posts
   resources :print_images
+
+  resources :print_images do
+    member do
+      get 'download_image/:image_id', to: 'print_images#download_image', as: :download_image
+    end
+  end
+
   resources :events
   resources :categories
   root :to => "core_pages#top"
