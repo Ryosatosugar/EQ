@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_12_12_053520) do
+ActiveRecord::Schema.define(version: 2025_01_09_063443) do
 
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2024_12_12_053520) do
   end
 
   create_table "print_images", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.text "image"
+    t.text "thumbnail_image"
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
     t.bigint "event_id", null: false

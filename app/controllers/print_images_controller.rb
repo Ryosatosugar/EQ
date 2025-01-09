@@ -1,5 +1,5 @@
 class PrintImagesController < ApplicationController
-  before_action :set_print_image, only: %i[ show edit update destroy ]
+  before_action :set_print_image, only: %i[ show edit update destroy download_image ]
 
   # GET /print_images or /print_images.json
   def index
@@ -19,6 +19,18 @@ class PrintImagesController < ApplicationController
 
   def user_show
     @print_image = PrintImage.find(params[:id])
+  end
+
+  def download_image
+    product = PrintImage.find(params[:id])
+    image = product.images[params[:image_id].to_i]
+    # [params[:print_image_id].to_i]
+
+    # if image
+      redirect_to url_for(image)
+    # else
+    #   redirect_to print_image_path(product), alert: '画像が見つかりません'
+    # end
   end
 
   # GET /print_images/new
@@ -76,6 +88,6 @@ class PrintImagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def print_image_params
-      params.require(:print_image).permit(:image, :user_id, :category_id, :event_id, :explanation, :print_images => [])
+      params.require(:print_image).permit(:thumbnail_image, :user_id, :category_id, :event_id, :explanation, :print_images => [])
     end
 end
