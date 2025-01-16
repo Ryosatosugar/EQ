@@ -1,4 +1,4 @@
-<%= form_with(model: print_image) do |form| %>
+<%= form_with(model: print_image, local: true) do |form| %>
   <% if print_image.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(print_image.errors.count, "error") %> prohibited this print_image from being saved:</h2>
@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :サムネイル %>
-    <%= form.file_field :image %>
+    <%= form.label :thumbnail_image %>
+    <%= form.file_field :thumbnail_image %>
   </div>
 
   <div class="field">
-    <%= form.label :画像 %>
-    <%= form.file_field :print_images, multiple: true %>
+    <%= form.label :image_for_download %>
+    <%= form.file_field :image_for_download, multiple: true %>
   </div>
 
   <div class="field">

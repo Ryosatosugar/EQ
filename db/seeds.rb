@@ -11,3 +11,8 @@ User.create!(email: "ryo032897@gmail.com",
             name: "佐藤",
             admin: true).skip_confirmation!
 
+User.create!(email: "comoly_t.kenmochi@metaanchor.com",
+            password: "123456",
+            password_confirmation: "123456",
+            name: "釼持",
+            admin: true).skip_confirmation!

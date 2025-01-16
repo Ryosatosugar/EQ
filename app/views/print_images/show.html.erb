@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-<% if @print_image.image_for_downloads.attached? %>
+<% if @print_image.image_for_download.attached? %>
             <% @print_image.image_for_download.each do |image| %>
                 <%= image_tag image.url, size: "150x150" %>
             <% end %>
@@ -25,5 +25,13 @@
   <%= @print_image.event_id %>
 </p>
 
+<h2>画像をダウンロード</h2>
+<ul>
+  <% @print_image.image_for_download.each do |image| %>
+    <li>
+      <%= link_to "ダウンロード - #{image.filename}", download_print_image_path(@print_image, image_id: image.id), target: "_blank" %>
+    </li>
+  <% end %>
+</ul>
 <%= link_to 'Edit', edit_print_image_path(@print_image) %> |
 <%= link_to 'Back', print_images_path %>
