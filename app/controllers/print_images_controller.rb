@@ -1,5 +1,5 @@
 class PrintImagesController < ApplicationController
-  before_action :set_print_image, only: %i[ show edit update destroy ]
+  before_action :set_print_image, only: %i[ show edit update destroy download_image ]
 
   # GET /print_images or /print_images.json
   def index
@@ -7,7 +7,10 @@ class PrintImagesController < ApplicationController
   end
 
   def user_index
-    @print_images = PrintImage.all
+    logger.debug "Params: #{params[:q]}"
+    @q = Event.ransack(params[:q])
+    logger.debug "Ransack Query: #{@q.inspect}"
+    @search_results = @q.result(distinct: true).includes(print_images: { thumbnail_image_attachment: :blob })
   end
 
   # GET /print_images/1 or /print_images/1.json
@@ -16,6 +19,17 @@ class PrintImagesController < ApplicationController
 
   def user_show
     @print_image = PrintImage.find(params[:id])
+  end
+
+  def download_image
+    product = PrintImage.find(params[:id])
+    image = product.images.where(id: params[:image_id])
+
+    if image
+      redirect_to url_for(image)
+    else
+      redirect_to print_images_user_show_path(product), alert: '画像が見つかりません'
+    end
   end
 
   # GET /print_images/new
@@ -73,6 +87,6 @@ class PrintImagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def print_image_params
-      params.require(:print_image).permit(:image, :user_id, :category_id, :event_id, :explanation, :print_images => [])
+      params.require(:print_image).permit(:thumbnail_image, :user_id, :category_id, :event_id, :explanation, :image_for_downloads => [])
     end
 end
