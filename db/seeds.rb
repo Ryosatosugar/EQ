@@ -8,8 +8,6 @@
 User.create!(email: "ryo032897@gmail.com",
             password: "123456",
             password_confirmation: "123456",
-            admin: true)
+            name: "佐藤",
+            admin: true).skip_confirmation!
 
-FormQuestion.create!(
-
-                            )

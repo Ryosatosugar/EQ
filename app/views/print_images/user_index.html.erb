@@ -1,11 +1,21 @@
 userが見る印刷テンプレートindex
 
+<%= search_form_for @q, url: print_images_user_index_path do |f| %>
+  <%= f.collection_select :event_name_cont, Event.select("event_name").distinct, :event_name, :event_name,  include_blank: '選択して下さい' %>
+  <%= f.submit "検索" %>
+<% end %>
 
 
-<% @print_images.each do |print_image| %>
+
+<% @search_results.each do |event| %>
+  <h2><%= event.event_name %></h2>
+
+
+  <% event.print_images.each do |print_image| %>
+
     <tr>
-    <td><% if print_image.image.attached? %>
-      <%= image_tag print_image.image, size: "150x150" %><br>
+    <td><% if print_image.thumbnail_image.attached? %>
+      <%= image_tag print_image.thumbnail_image, size: "150x150" %><br>
     <%else%>
       <img src="http://placehold.jp/150x150"><br>
     <%end%><td>
@@ -13,10 +23,11 @@ userが見る印刷テンプレートindex
       <td><%= print_image.event.event_name %></td>
       <%= link_to "詳しく見る", print_images_user_show_path(print_image.id) %>
     </tr>
+    <% end %>
 <% end %>
-
 
 <li>
     <%= link_to "topページへ", core_pages_top_path %>
 </li>
+
 
