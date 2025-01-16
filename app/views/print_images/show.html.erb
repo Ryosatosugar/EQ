@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-<% if @print_image.image_for_downloads.attached? %>
+<% if @print_image.image_for_download.present? %>
             <% @print_image.image_for_download.each do |image| %>
                 <%= image_tag image.url, size: "150x150" %>
             <% end %>
