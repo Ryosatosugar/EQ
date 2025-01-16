@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :print_images do
     member do
-      get 'download_image/:image_id', to: 'print_images#download_image', as: :download_image
+      get :download
     end
   end
 

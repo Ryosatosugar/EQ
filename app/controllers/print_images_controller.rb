@@ -21,14 +21,13 @@ class PrintImagesController < ApplicationController
     @print_image = PrintImage.find(params[:id])
   end
 
-  def download_image
-    product = PrintImage.find(params[:id])
-    image = product.images.where(id: params[:image_id])
-
-    if image
-      redirect_to url_for(image)
+  def download
+    @print_image = PrintImage.find(params[:id])
+    image = @print_image.image_for_download.find(params[:image_id])
+    if image.present?
+      redirect_to image.service_url(disposition: 'attachment')
     else
-      redirect_to print_images_user_show_path(product), alert: '画像が見つかりません'
+      redirect_to @print_image, alert: '画像が見つかりませんでした。'
     end
   end
 
@@ -87,6 +86,6 @@ class PrintImagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def print_image_params
-      params.require(:print_image).permit(:thumbnail_image, :user_id, :category_id, :event_id, :explanation, :image_for_downloads => [])
+      params.require(:print_image).permit(:thumbnail_image, :user_id, :category_id, :event_id, :explanation, :image_for_download => [])
     end
 end
