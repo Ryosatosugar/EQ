@@ -22,6 +22,10 @@ services:
       MYSQL_PORT: ${MYSQL_PORT}
       RAILS_ENV: ${RAILS_ENV}
       RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
+      AWS_ACCESS_KEY: ${AWS_ACCESS_KEY}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION}
+      AWS_BUCKET: ${AWS_BUCKET}
 
     volumes:
       - type: bind

@@ -1,16 +1,16 @@
 userが見る印刷テンプレートshow
 
 <tr>
-        <% if @print_image.image_for_downloads.attached? %>
-            <% @print_image.thumbnail_image.each do |image| %>
+        # <% if @print_image.image_for_download.present? %>
+            <% @print_image.image_for_download.each do |image| %>
                 <%= image_tag image.url, size: "150x150" %>
 
-                <%= link_to '画像をダウンロード', download_image_print_image_path(@print_image, image.id), class: 'btn btn-primary' %>
+                <%= link_to "ダウンロード - #{image.filename}", download_print_image_path(@print_image, image_id: image.id), target: "_blank" %>
                 <%= image %>
             <% end %>
-        <%else%>
-            <img src="http://placehold.jp/150x150"><br>
-        <%end%>
+       
+        #     <img src="http://placehold.jp/150x150"><br>
+        # <%end%>
 
       <td><%= @print_image.category.category_name %></td>
       <td><%= @print_image.event.event_name %></td>
