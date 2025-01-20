@@ -1,3 +1,7 @@
+<li>
+    <%= link_to "topページへ", core_pages_top_path %>
+</li>
+
 userが見る印刷テンプレートindex
 
 <%= search_form_for @q, url: print_images_user_index_path do |f| %>
@@ -7,27 +11,38 @@ userが見る印刷テンプレートindex
 
 
 
-<% @search_results.each do |event| %>
-  <h2><%= event.event_name  %> の検索結果</h2>
 
 
-  <% event.print_images.each do |print_image| %>
+<div class="container">
+  <div class="row">
 
-    <tr>
-    <td><% if print_image.thumbnail_image.attached? %>
-      <%= image_tag print_image.thumbnail_image, size: "150x150" %><br>
-    <%else%>
-      <img src="http://placehold.jp/150x150"><br>
-    <%end%><td>
-      <td><%= print_image.category.category_name %></td>
-      <td><%= print_image.event.event_name %></td>
-      <%= link_to "詳しく見る", print_images_user_show_path(print_image.id) %>
-    </tr>
-    <% end %>
+    <% @search_results.each do |event| %>
+
+      <h2><%= event.event_name  %> の検索結果</h2>
+
+      <% event.print_images.each do |print_image| %>
+
+                <div class="col-md-3 mb-4">
+                  <div class="card">
+                      <% if print_image.thumbnail_image.attached? %>
+                        <%= image_tag print_image.thumbnail_image, size: "150x150" %><br>
+                      <%else%>
+                        <img src="http://placehold.jp/150x150"><br>
+                      <%end%>
+                    <div class="card-body">
+                      <%= link_to "詳しく見る", print_images_user_show_path(print_image.id) %>
+                      <p><%= print_image.event.event_name %></p>
+                    </div>
+                  </div>
+                </div>
+      <% end %>
+  </div>
+  </div>
+  
 <% end %>
 
-<li>
-    <%= link_to "topページへ", core_pages_top_path %>
-</li>
+
+
+
 
 
