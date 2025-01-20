@@ -4,33 +4,25 @@
     <td><%= @print_image.event.event_name %></td>
     <div><td><%= @print_image.explanation %></td></div>
 
-<div class="container">
+    <div class="container">
     <div class="row">
-         <% if @print_image.image_for_download.present? %>
+      <% if @print_image.image_for_download.present? %>
+        <% @print_image.image_for_download.each do |image| %>
+          <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+            <div class="card h-100 d-flex flex-column">
+              <!-- 画像 -->
+              <%= image_tag image.url, class: "card-img-top", alt: "画像" %>
 
-
-
-                    <% @print_image.image_for_download.each do |image| %>
-
-                        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                            <div class="card h-100">
-
-                                <%= image_tag image.url, size: "150x150" %>
-                                <div class="card-body">
-                                    <%= link_to "ダウンロード", download_print_image_path(@print_image, image_id: image.id), class: "btn btn-success", target: "_blank" %>
-                                </div>
-
-                            </div>
-                        </div>
-                    <% end %>
-
-
-
-         <% end %>
-
-
+              <div class="card-footer mt-auto text-center">
+                <!-- ダウンロードボタン -->
+                <%= link_to "ダウンロード", download_print_image_path(@print_image, image_id: image.id), class: "btn btn-success btn-sm", target: "_blank" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
-</div>
+  </div>
 
 <li>
     <%= link_to "ユーザー用検索ページへ", print_images_user_index_path %>

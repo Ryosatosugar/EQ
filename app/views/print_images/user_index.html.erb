@@ -14,32 +14,33 @@ userが見る印刷テンプレートindex
 
 
 <div class="container">
-  <div class="row">
+  <% @search_results.each do |event| %>
+    <!-- 検索結果のタイトル -->
+    <h2 class="mb-4"><%= event.event_name %> の検索結果</h2>
 
-    <% @search_results.each do |event| %>
-
-      <h2><%= event.event_name  %> の検索結果</h2>
-
+    <div class="row">
       <% event.print_images.each do |print_image| %>
+        <div class="col-md-3 mb-4">
+          <div class="card h-100 d-flex flex-column">
+            <!-- サムネイル画像 -->
+            <% if print_image.thumbnail_image.attached? %>
+              <%= image_tag print_image.thumbnail_image, class: "card-img-top img-fluid", alt: "サムネイル画像" %>
+            <% else %>
+              <img src="http://placehold.jp/150x150" class="card-img-top img-fluid" alt="代替画像">
+            <% end %>
 
-                <div class="col-md-3 mb-4">
-                  <div class="card">
-                      <% if print_image.thumbnail_image.attached? %>
-                        <%= image_tag print_image.thumbnail_image, size: "150x150" %><br>
-                      <%else%>
-                        <img src="http://placehold.jp/150x150"><br>
-                      <%end%>
-                    <div class="card-body">
-                      <%= link_to "詳しく見る", print_images_user_show_path(print_image.id) %>
-                      <p><%= print_image.event.event_name %></p>
-                    </div>
-                  </div>
-                </div>
+            <!-- カード内容 -->
+            <div class="card-body text-center">
+              <p class="card-text mb-2"><%= print_image.event.event_name %></p>
+              <!-- 詳細ページへのリンク -->
+              <%= link_to "詳しく見る", print_images_user_show_path(print_image.id), class: "btn btn-primary btn-sm" %>
+            </div>
+          </div>
+        </div>
       <% end %>
-  </div>
-  </div>
-  
-<% end %>
+    </div>
+  <% end %>
+</div>
 
 
 
