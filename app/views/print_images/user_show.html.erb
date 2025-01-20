@@ -1,8 +1,23 @@
 <div> userが見る印刷テンプレートshow </div>
 
-    <td><%= @print_image.category.category_name %></td>
-    <td><%= @print_image.event.event_name %></td>
-    <div><td><%= @print_image.explanation %></td></div>
+<div class="container mt-4">
+  <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+      <tr>
+        
+        <th>イベント名</th>
+        <th>説明</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        
+        <td><%= @print_image.event.event_name %></td>
+        <td><%= @print_image.explanation %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
     <div class="container">
     <div class="row">

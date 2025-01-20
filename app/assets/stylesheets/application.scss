@@ -72,3 +72,36 @@
       .bd-mode-toggle {
         z-index: 1500;
       }
+/* user_indexとuser_showページ */
+      .card {
+        min-height: 200px; /* カードの高さを指定 */
+      }
+
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .card-img-top {
+        max-height: 150px;
+        object-fit: contain; /* 画像をアスペクト比を保ちながら収める */
+      }
+
+
+
+      .custom-select-bg {
+        height: 70px;
+        background-color: #f0f2ff; /* 淡い青色 */
+        border-color: #d1e7dd; /* ボーダー色 */
+        color: #495057; /* 文字色 */
+        padding: 0.375rem 0.75rem; /* フォーム全体の調整 */
+        border-radius: 0.25rem; /* 丸み */
+      }
+
+      .custom-select-bg:focus {
+        background-color: #e6f7ff; /* フォーカス時の背景色 */
+        border-color: #80bdff; /* フォーカス時のボーダー色 */
+        outline: none; /* フォーカス時の枠を消す */
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* フォーカス時の影 */
+      }
