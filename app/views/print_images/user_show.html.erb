@@ -1,21 +1,38 @@
-userが見る印刷テンプレートshow
+<div> userが見る印刷テンプレートshow </div>
 
-<tr>
-        # <% if @print_image.image_for_download.present? %>
-            <% @print_image.image_for_download.each do |image| %>
-                <%= image_tag image.url, size: "150x150" %>
+    <td><%= @print_image.category.category_name %></td>
+    <td><%= @print_image.event.event_name %></td>
+    <div><td><%= @print_image.explanation %></td></div>
 
-                <%= link_to "ダウンロード - #{image.filename}", download_print_image_path(@print_image, image_id: image.id), target: "_blank" %>
-                <%= image %>
-            <% end %>
-       
-        #     <img src="http://placehold.jp/150x150"><br>
-        # <%end%>
+<div class="container">
+    <div class="row">
+         <% if @print_image.image_for_download.present? %>
 
-      <td><%= @print_image.category.category_name %></td>
-      <td><%= @print_image.event.event_name %></td>
-</tr>
+
+
+                    <% @print_image.image_for_download.each do |image| %>
+
+                        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+                            <div class="card h-100">
+
+                                <%= image_tag image.url, size: "150x150" %>
+                                <div class="card-body">
+                                    <%= link_to "ダウンロード", download_print_image_path(@print_image, image_id: image.id), class: "btn btn-success", target: "_blank" %>
+                                </div>
+
+                            </div>
+                        </div>
+                    <% end %>
+
+
+
+         <% end %>
+
+
+    </div>
+</div>
 
 <li>
-    <%= link_to "userが見る印刷テンプレートindex", print_images_user_index_path %>
+    <%= link_to "ユーザー用検索ページへ", print_images_user_index_path %>
 </li>
+
