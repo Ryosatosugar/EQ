@@ -1,0 +1,20 @@
+// Place all the styles related to the Core_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+h1, h2 {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* ポップな印象のフォントに変更 */
+  }
+  
+  .btn {
+    font-size: 1.2rem; /* ボタンの文字サイズを少し大きく */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* ホバー時のエフェクト */
+  }
+  
+  .btn:hover {
+    transform: scale(1.1); /* ホバー時に拡大 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* ホバー時の影 */
+  }
+  
+  .text-secondary {
+    color: #ff6f61; /* サイト説明にポップなオレンジ系の色 */
+  }
