@@ -45,7 +45,8 @@ class PrintImagesController < ApplicationController
   # POST /print_images or /print_images.json
   def create
     @print_image = PrintImage.new(print_image_params)
-
+    @events = Event.all
+    @categories = Category.all
     respond_to do |format|
       if @print_image.save
         format.html { redirect_to @print_image, notice: "Print image was successfully created." }
