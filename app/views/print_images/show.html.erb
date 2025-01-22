@@ -1,29 +1,49 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-<% if @print_image.image_for_download.present? %>
-            <% @print_image.image_for_download.each do |image| %>
-                <%= image_tag image.url, size: "150x150" %>
-            <% end %>
-        <%else%>
-            <img src="http://placehold.jp/150x150"><br>
-        <%end%>
-</p>
+<div class="container mt-4">
+  <!-- 通知 -->
+  <p id="notice" class="alert alert-info"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @print_image.user_id %>
-</p>
+  <!-- Print Imageの詳細カード -->
+  <div class="card shadow">
+    <div class="card-body">
+      <!-- 画像の表示 -->
+      <div class="row text-center mb-3">
+        <% if @print_image.image_for_download.present? %>
+          <% @print_image.image_for_download.each do |image| %>
+            <div class="col-md-2 col-sm-3 col-4 mb-2">
+              <%= image_tag image.url, class: "img-thumbnail", style: "max-width: 100%; max-height: 150px;" %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="col-12">
+            <img src="http://placehold.jp/150x150" class="img-thumbnail" alt="No Image">
+          </div>
+        <% end %>
+      </div>
 
-<p>
-  <strong>Category:</strong>
-  <%= @print_image.category_id %>
-</p>
+      <!-- User情報 -->
+      <p>
+        <strong>User:</strong>
+        <%= @print_image.user_id %>
+      </p>
 
-<p>
-  <strong>Event:</strong>
-  <%= @print_image.event_id %>
-</p>
+      <!-- Category情報 -->
+      <p>
+        <strong>Category:</strong>
+        <%= @print_image.category_id %>
+      </p>
 
-<%= link_to 'Edit', edit_print_image_path(@print_image) %> |
-<%= link_to 'Back', print_images_path %>
+      <!-- Event情報 -->
+      <p>
+        <strong>Event:</strong>
+        <%= @print_image.event_id %>
+      </p>
+
+      <!-- ボタン -->
+      <div class="text-center mt-4">
+        <%= link_to 'Edit', edit_print_image_path(@print_image), class: "btn btn-warning btn-sm mr-2" %>
+        <%= link_to 'Back', print_images_path, class: "btn btn-secondary btn-sm" %>
+      </div>
+    </div>
+  </div>
+</div>
