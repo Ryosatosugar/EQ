@@ -34,6 +34,8 @@ class PrintImagesController < ApplicationController
   # GET /print_images/new
   def new
     @print_image = PrintImage.new
+    @events = Event.all
+    @categories = Category.all
   end
 
   # GET /print_images/1/edit
