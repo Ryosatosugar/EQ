@@ -1,9 +1,17 @@
-<h1>Topページ</h1>
-<h1>このサイトは〜〜〜な人が〜〜〜するためのサイトです</h1>
-    <li>
-        <%= link_to "印刷テンプレートはこちらから", print_images_user_index_path %>
-    </li>
+<% content_for :additional_stylesheets do %>
+    <%= stylesheet_link_tag "only_for_core_pages", media: "all", "data-turbo-track": "reload" %>
+<% end %>
 
-    <li>
-        <%= link_to "単発おもちゃはこちらから", single_posts_user_index_path %>
-    </li>
+<div class="container text-center mt-5">
+  <!-- ページタイトル -->
+  <h1 class="mb-4">Topページ</h1>
+  
+  <!-- サイト説明 -->
+  <h2 class="mb-5 text-secondary">このサイトは〜〜〜な人が〜〜〜するためのサイトです</h2>
+  
+  <!-- ボタンリンク -->
+  <div class="d-grid gap-3 col-6 mx-auto">
+    <%= link_to "印刷テンプレートはこちらから", print_images_user_index_path, class: "btn btn-primary btn-lg rounded-pill shadow" %>
+    <%= link_to "単発おもちゃはこちらから", single_posts_user_index_path, class: "btn btn-success btn-lg rounded-pill shadow" %>
+  </div>
+</div>

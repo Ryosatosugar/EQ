@@ -9,6 +9,10 @@
 
         <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track':
         'reload' %>
+
+        <%= yield(:additional_stylesheets) %>
+
+
         <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
 
@@ -17,7 +21,7 @@
         <nav
             class="navbar bg-primary d-flex justify-content-end sticky-top"
             data-bs-theme="dark">
-       
+
 
         <div class="<%= header_button %>">
             <%= link_to "Top", core_pages_top_path %>
