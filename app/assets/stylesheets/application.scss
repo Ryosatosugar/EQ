@@ -72,7 +72,10 @@
       .bd-mode-toggle {
         z-index: 1500;
       }
+
+
 /* user_indexとuser_showページ */
+
       .card {
         min-height: 200px; /* カードの高さを指定 */
       }
@@ -104,4 +107,25 @@
         border-color: #80bdff; /* フォーカス時のボーダー色 */
         outline: none; /* フォーカス時の枠を消す */
         box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* フォーカス時の影 */
+      }
+
+
+      /* adminsのindexページ */
+
+      .table {
+        font-size: 0.9rem;
+      }
+
+      .table th, .table td {
+        vertical-align: middle;
+      }
+
+      .img-thumbnail {
+        display: block;
+        margin: auto;
+      }
+
+      .alert-info {
+        font-size: 1rem;
+        text-align: center;
       }
