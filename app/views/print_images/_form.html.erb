@@ -11,38 +11,59 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :thumbnail_image %>
-    <%= form.file_field :thumbnail_image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image_for_download %>
-    <%= form.file_field :image_for_download, multiple: true %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
+  
 
 
-  <div class="form-group">
-    <%= form.label :event_id, "イベントを選択してください" %>
-    <%= form.collection_select :event_id, events, :id, :event_name, { include_blank: '選択してください' }, { class: 'form-control' } %>
-  </div>
 
-  <div class="form-group">
-    <%= form.label :category_id, "カテゴリーを選択してください" %>
-    <%= form.collection_select :category_id, categories, :id, :category_name, { include_blank: '選択してください' }, { class: 'form-control' } %>
-  </div>
 
-  <div class="field">
-    <%= form.label :説明文 %>
-    <%= form.text_area :explanation %>
-  </div>
+  <div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h3>フォーム入力</h3>
+    </div>
+    <div class="card-body">
+      <%= form_with(model: @model_instance, local: true) do |form| %>
 
-  <div class="actions">
-    <%= form.submit %>
+        <div class="form-group mb-3">
+          <%= form.label :thumbnail_image, "サムネイル画像をアップロード", class: "form-label" %>
+          <%= form.file_field :thumbnail_image, class: "form-control" %>
+        </div>
+
+        <div class="form-group mb-3">
+          <%= form.label :image_for_download, "ダウンロード用画像をアップロード", class: "form-label" %>
+          <%= form.file_field :image_for_download, multiple: true, class: "form-control" %>
+        </div>
+
+        <div class="form-group mb-3">
+          <%= form.label :user_id, "ユーザーID", class: "form-label" %>
+          <%= form.text_field :user_id, class: "form-control" %>
+        </div>
+
+        <div class="form-group mb-3">
+          <%= form.label :event_id, "イベントを選択してください", class: "form-label" %>
+          <%= form.collection_select :event_id, events, :id, :event_name, { include_blank: '選択してください' }, { class: 'form-control' } %>
+        </div>
+
+        <div class="form-group mb-3">
+          <%= form.label :category_id, "カテゴリーを選択してください", class: "form-label" %>
+          <%= form.collection_select :category_id, categories, :id, :category_name, { include_blank: '選択してください' }, { class: 'form-control' } %>
+        </div>
+
+        <div class="form-group mb-3">
+          <%= form.label :explanation, "説明文", class: "form-label" %>
+          <%= form.text_area :explanation, rows: 4, class: "form-control" %>
+        </div>
+
+        <div class="d-grid gap-2">
+          <%= form.submit "送信する", class: "btn btn-success btn-block" %>
+        </div>
+
+      <% end %>
+    </div>
   </div>
+</div>
+
+
+
+
 <% end %>
