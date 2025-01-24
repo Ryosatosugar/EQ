@@ -18,27 +18,15 @@
 
     <body>
 
-        <nav
-            class="navbar bg-primary d-flex justify-content-end sticky-top"
-            data-bs-theme="dark">
+    <nav
+        class="navbar bg-yellow d-flex justify-content-end sticky-top"
+        data-bs-theme="dark">
 
 
-        <div class="<%= header_button %>">
-            <%= link_to "Top", core_pages_top_path %>
-        </div>
-        <% if user_signed_in? %>
-            <% if current_user.admin == true %>
+            <div class="<%= header_button %>">
+                <%= link_to "トップページへ", core_pages_top_path %>
+            </div>
 
-                <%= render partial: 'layouts/header_admin' %>
-
-            <% else %>
-
-                <%= render partial: 'layouts/header_signedup_user' %>
-
-            <% end %>
-        <% else %>
-            <%= render partial: 'layouts/header_user' %>
-        <% end %>
     </nav>
 
     <p class="notice"><%= notice %></p>
