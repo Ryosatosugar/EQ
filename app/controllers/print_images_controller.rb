@@ -40,6 +40,8 @@ class PrintImagesController < ApplicationController
 
   # GET /print_images/1/edit
   def edit
+    @events = Event.all
+    @categories = Category.all
   end
 
   # POST /print_images or /print_images.json

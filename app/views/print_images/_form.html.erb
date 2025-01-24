@@ -46,12 +46,12 @@
 
         <div class="form-group mb-3">
           <%= form.label :event_id, "イベントを選択してください", class: "form-label" %>
-          <%= form.collection_select :event_id, events, :id, :event_name, { include_blank: '選択してください' }, { class: 'form-control' } %>
+          <%= form.collection_select :event_id, @events, :id, :event_name, { include_blank: '選択してください' }, { class: 'form-control' } %>
         </div>
 
         <div class="form-group mb-3">
           <%= form.label :category_id, "カテゴリーを選択してください", class: "form-label" %>
-          <%= form.collection_select :category_id, categories, :id, :category_name, { include_blank: '選択してください' }, { class: 'form-control' } %>
+          <%= form.collection_select :category_id, @categories, :id, :category_name, { include_blank: '選択してください' }, { class: 'form-control' } %>
         </div>
 
         <div class="form-group mb-3">
