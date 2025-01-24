@@ -21,28 +21,40 @@
         <% end %>
       </div>
 
+      <!-- Title情報 -->
+      <p>
+        <strong>タイトル:</strong>
+        <%= @print_image.title %>
+      </p>
+
       <!-- User情報 -->
       <p>
-        <strong>User:</strong>
+        <strong>ユーザー:</strong>
         <%= @print_image.user_id %>
       </p>
 
       <!-- Category情報 -->
       <p>
-        <strong>Category:</strong>
+        <strong>カテゴリー:</strong>
         <%= @print_image.category_id %>
       </p>
 
       <!-- Event情報 -->
       <p>
-        <strong>Event:</strong>
+        <strong>イベント:</strong>
         <%= @print_image.event_id %>
+      </p>
+
+      <!-- Explanation情報 -->
+      <p>
+        <strong>説明文:</strong>
+        <%= @print_image.explanation %>
       </p>
 
       <!-- ボタン -->
       <div class="text-center mt-4">
-        <%= link_to 'Edit', edit_print_image_path(@print_image), class: "btn btn-warning btn-sm mr-2" %>
-        <%= link_to 'Back', print_images_path, class: "btn btn-secondary btn-sm" %>
+        <%= link_to '編集する', edit_print_image_path(@print_image), class: "btn btn-warning btn-sm mr-2" %>
+        <%= link_to '戻る', print_images_path, class: "btn btn-secondary btn-sm" %>
       </div>
     </div>
   </div>
