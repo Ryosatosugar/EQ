@@ -1,45 +1,51 @@
-<div> userが見る印刷テンプレートshow </div>
+
 
 <div class="container mt-4">
+  <div class="text-center mb-4">
+    <!-- タイトル部分 -->
+    <h1 class="display-4 font-weight-bold text-primary"><%= @print_image.title %></h1>
+  </div>
+
+  <!-- 情報テーブル -->
   <table class="table table-bordered table-hover">
     <thead class="thead-light">
       <tr>
-        
         <th>イベント名</th>
         <th>説明</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        
         <td><%= @print_image.event.event_name %></td>
         <td><%= @print_image.explanation %></td>
       </tr>
     </tbody>
   </table>
-</div>
 
-    <div class="container">
-    <div class="row">
-      <% if @print_image.image_for_download.present? %>
-        <% @print_image.image_for_download.each do |image| %>
-          <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-            <div class="card h-100 d-flex flex-column">
-              <!-- 画像 -->
-              <%= image_tag image.url, class: "card-img-top", alt: "画像" %>
-
-              <div class="card-footer mt-auto text-center">
-                <!-- ダウンロードボタン -->
-                <%= link_to "ダウンロード", download_print_image_path(@print_image, image_id: image.id), class: "btn btn-success btn-sm", target: "_blank" %>
-              </div>
+  <!-- 画像表示エリア -->
+  <div class="row mt-4">
+    <% if @print_image.image_for_download.present? %>
+      <% @print_image.image_for_download.each do |image| %>
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card h-100 d-flex flex-column shadow-sm">
+            <!-- 画像 -->
+            <%= image_tag image.url, class: "card-img-top img-fluid", alt: "画像" %>
+            <div class="card-footer mt-auto text-center">
+              <!-- ダウンロードボタン -->
+              <%= link_to "ダウンロード", download_print_image_path(@print_image, image_id: image.id), class: "btn btn-success btn-sm", target: "_blank" %>
             </div>
           </div>
-        <% end %>
+        </div>
       <% end %>
-    </div>
+    <% else %>
+      <!-- 画像がない場合のメッセージ -->
+      <p class="text-center text-muted">画像がありません</p>
+    <% end %>
   </div>
 
-<li>
-    <%= link_to "戻る", print_images_user_index_path %>
-</li>
+  <!-- 戻るリンク -->
+  <div class="text-center mt-4">
+    <%= link_to "戻る", print_images_user_index_path, class: "btn btn-secondary btn-lg" %>
+  </div>
+</div>
 
