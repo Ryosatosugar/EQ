@@ -23,6 +23,11 @@
     </div>
     <div class="card-body">
 
+        <div class="form-group mb-3">
+          <%= form.label :title, "タイトル", class: "form-label" %>
+          <%= form.text_field :title, class: "form-control" %>
+        </div>
+
 
         <div class="form-group mb-3">
           <%= form.label :thumbnail_image, "サムネイル画像をアップロード", class: "form-label" %>

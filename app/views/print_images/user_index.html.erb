@@ -28,7 +28,7 @@
 
               <!-- カード内容 -->
               <div class="card-body text-center">
-                <p class="card-text mb-2"><%= print_image.event.event_name %></p>
+                <p class="card-text mb-2"><%= print_image.title %></p>
                 <!-- 詳細ページへのリンク -->
                 <%= link_to "詳しく見る", print_images_user_show_path(print_image.id), class: "btn btn-primary btn-sm" %>
               </div>
