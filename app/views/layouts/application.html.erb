@@ -1,53 +1,48 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Eq</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-    <head>
-        <title>Eq</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <%= csrf_meta_tags %>
-        <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= yield(:additional_stylesheets) %>
 
-        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track':
-        'reload' %>
-
-        <%= yield(:additional_stylesheets) %>
-
-
-        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </head>
-
-    <body>
-
-    <nav
-        class="navbar bg-yellow d-flex justify-content-end sticky-top"
-        data-bs-theme="dark">
-
-
-            <div class="<%= header_button %>">
-                <%= link_to "トップページへ", core_pages_top_path %>
-            </div>
-
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+        /* パンくずリストのスタイリング */
+        .breadcrumbs-container {
+            background-color: #f9f9f9; /* 背景色 */
+            padding: 10px 15px; /* 内側余白 */
+            border-bottom: 1px solid #ddd; /* 下線 */
+        }
+    </style>
+</head>
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar bg-yellow d-flex justify-content-end sticky-top" data-bs-theme="dark">
+        <!-- トップページへのリンク -->
+        <div class="<%= header_button %>">
+            <%= link_to "トップページへ", core_pages_top_path %>
+        </div>
     </nav>
 
+    <!-- パンくずリスト -->
+    <div class="breadcrumbs-container">
+        <%= breadcrumbs separator: " &rsaquo; " %>
+    </div>
+
+    <!-- 通知メッセージ -->
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <% if user_signed_in? %>
-
-        <% if current_user.admin == true %>
-
-            <%= render partial: 'layouts/sidebar_admin' %>
-
-        <% else %>
-
-        <% end %>
-
-    <% else %>
-
+    <!-- 管理者向けサイドバー -->
+    <% if user_signed_in? && current_user.admin %>
+        <%= render partial: 'layouts/sidebar_admin' %>
     <% end %>
 
+    <!-- メインコンテンツ -->
     <%= yield %>
-
 </body>
-
 </html>

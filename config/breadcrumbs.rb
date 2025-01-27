@@ -1,5 +1,17 @@
-crumb :root do
-  link "Home", root_path
+crumb :top do
+  link "トップ", core_pages_top_path
+end
+
+# Issue list
+crumb :user_index do
+  link "検索ページ", print_images_user_index_path
+  parent :top
+end
+
+# Issue
+crumb :user_show do |post|
+  link post.title, print_images_user_show_path()
+  parent :user_index
 end
 
 # crumb :projects do
