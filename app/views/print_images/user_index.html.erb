@@ -1,3 +1,5 @@
+<% breadcrumb :user_index %>
+
 
 <!-- 検索フォーム -->
 <div class="bg-light py-3 mb-4 border-bottom">
@@ -20,7 +22,7 @@
   <% else %>
     <% @search_results.each do |event| %>
       <!-- 検索結果のタイトル -->
-      <h2 class="mb-4"><%= event.event_name %> の検索結果</h2>
+      <h2 class="mb-4"><%= event.event_name %></h2>
 
       <div class="row">
         <% event.print_images.each do |print_image| %>
@@ -45,6 +47,10 @@
       </div>
     <% end %>
   <% end %>
+</div>
+
+<div class="d-flex justify-content-center mt-4">
+  <%= paginate @search_results %>
 </div>
 
 
