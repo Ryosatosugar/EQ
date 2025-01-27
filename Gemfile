@@ -79,3 +79,5 @@ gem 'bootstrap', '~> 5.3.3'
 
 gem 'jquery-rails'
 
+
+gem "kaminari-bootstrap", "~> 3.0"
