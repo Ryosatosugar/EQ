@@ -125,6 +125,9 @@ GEM
     google-protobuf (4.28.2-x86_64-linux)
       bigdecimal
       rake (>= 13)
+    gretel (5.0.1)
+      actionview (>= 6.1)
+      railties (>= 6.1)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     image_processing (1.13.0)
@@ -311,6 +314,7 @@ DEPENDENCIES
   dartsass-rails
   devise
   dotenv-rails
+  gretel
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   jquery-rails
