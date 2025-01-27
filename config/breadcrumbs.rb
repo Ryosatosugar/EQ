@@ -1,18 +1,19 @@
 crumb :top do
-  link "ホーム", root_path
+  link "トップ", core_pages_top_path
 end
 
-# 印刷テンプレートの一覧ページ
+# Issue list
 crumb :user_index do
-  link "印刷テンプレート", print_images_user_index_path
+  link "検索ページ", print_images_user_index_path
   parent :top
 end
 
-# 印刷テンプレートの詳細ページ
-crumb :user_show do
-  link "印刷テンプレート", print_images_user_index_path
+# Issue
+crumb :user_show do |post|
+  link post.title, print_images_user_show_path()
   parent :user_index
 end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
