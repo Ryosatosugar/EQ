@@ -10,9 +10,7 @@ class PrintImagesController < ApplicationController
     logger.debug "Params: #{params[:q]}"
     @q = Event.ransack(params[:q])
     logger.debug "Ransack Query: #{@q.inspect}"
-    @search_results = @q.result(distinct: true).includes(print_images: { thumbnail_image_attachment: :blob })
-
-    @users = PrintImage.page(params[:page]).per(4)
+    @search_results = @q.result(distinct: true).includes(print_images: { thumbnail_image_attachment: :blob }).page(params[:page]).per(4)
   end
 
   # GET /print_images/1 or /print_images/1.json
