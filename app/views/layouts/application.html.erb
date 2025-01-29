@@ -19,12 +19,17 @@
 </head>
 <body>
     <!-- ナビゲーションバー -->
-    <nav class="navbar bg-yellow d-flex justify-content-end sticky-top" data-bs-theme="dark">
-        <!-- トップページへのリンク -->
-        <div class="<%= header_button %>">
-            <%= link_to "トップページへ", core_pages_top_path %>
-        </div>
-    </nav>
+    <nav class="navbar sticky-top d-flex" style="background-color: #FF8B94;" data-bs-theme="dark">
+    <!-- サイトタイトルを左寄せ -->
+    <div class="me-auto">
+        <h1 class="text-light ms-3">保育レディ (Hoiku Ready)</h1>
+    </div>
+
+    <!-- トップページへのリンクを右寄せ -->
+    <div class="me-3">
+        <%= link_to "トップページへ", core_pages_top_path, class: "btn btn-light" %>
+    </div>
+</nav>
 
     <!-- パンくずリスト -->
     <div class="breadcrumbs-container">
