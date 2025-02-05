@@ -1,4 +1,5 @@
 class PrintImagesController < ApplicationController
+  before_action :authenticate_user!, only: %i[ index show new edit create update destroy ]
   before_action :set_print_image, only: %i[ show edit update destroy download_image ]
 
   # GET /print_images or /print_images.json
