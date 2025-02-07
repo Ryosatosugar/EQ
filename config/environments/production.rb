@@ -7,16 +7,10 @@ Rails.application.configure do
   config.hosts << "eq-app-b952302c7a99.herokuapp.com"
 
 
-  
 
-  # CDNを使う場合は以下を設定（例：CloudflareやAWS S3）
-  config.action_controller.asset_host = ENV['ASSET_HOST'] || ''
 
-  # メール送信時のアセットホスト
+  config.action_controller.asset_host = 'https://eq-app.herokuapp.com'
   config.action_mailer.asset_host = config.action_controller.asset_host
-
-  # アセットパイプラインのエラーを防ぐための設定
-  config.assets.initialize_on_precompile = false
 
 
 
