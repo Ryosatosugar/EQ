@@ -3,6 +3,9 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # ホスト認証: Heroku のホスト名を許可する
+  config.hosts << "eq-app-b952302c7a99.herokuapp.com"
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
