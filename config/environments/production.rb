@@ -11,8 +11,7 @@ Rails.application.configure do
   # ホスト認証: Heroku のホスト名を許可する
   config.hosts << "eq-app-b952302c7a99.herokuapp.com"
 
-  # データベース設定 (JawsDB)
-  config.active_record.database_url = ENV['JAWSDB_URL'] || 'mysql2://user:password@host:3306/database'
+
 
 
 
