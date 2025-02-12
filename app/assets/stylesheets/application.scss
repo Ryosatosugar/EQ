@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import 'only_for_core_pages';
 
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -136,21 +137,21 @@
         font-size: 1rem;
         padding: 10px;
       }
-      
+
       .card {
         border-radius: 10px;
         background-color: #f9f9f9;
       }
-      
+
       .card-body {
         font-size: 1rem;
       }
-      
+
       .img-thumbnail {
         border-radius: 10px;
         margin: 5px;
       }
-      
+
       .btn-sm {
         padding: 5px 10px;
         font-size: 0.9rem;
@@ -161,15 +162,15 @@
         background-color: #fdd835; /* 明るい黄色 */
         color: #ffffff; /* 白い文字で視認性を高める */
       }
-      
+
       .bg-yellow .nav-link {
         color: #ffffff; /* ナビバーリンクを白色に */
       }
-      
+
       .bg-yellow .nav-link:hover {
         color: #f57f17; /* ホバー時のオレンジがかった色 */
       }
-      
+
       .bg-yellow .navbar-brand {
         color: #ffffff; /* ブランド名も白に */
       }
