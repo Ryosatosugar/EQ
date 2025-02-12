@@ -16,13 +16,15 @@ WORKDIR /$APP_HOME
 ENV LANG C.UTF-8
 
 COPY Gemfile Gemfile.lock /$APP_HOME
-RUN gem install bundler:2.2.33 \
+RUN gem install bundler:2.3.25 \
   && bundle config --global build.nokogiri --use-system-libraries \
   && bundle config --global jobs 4 retry 3 \
   && bundle install \
   && rm -rf /usr/local/bundle/cache/*
-RUN rm -rf node_modules && rm -rf tmp/cache/webpacker
-RUN yarn install --check-files
+
+RUN bundle exec rails webpacker:install
+RUN SECRET_KEY_BASE=placeholder bundle exec rails assets:precompile \
+    && bundle exec rails assets:clean
 
 COPY . .
 
