@@ -58,4 +58,4 @@ production:
   host: <%= ENV['MYSQL_HOST'] %>
   username: <%= ENV['MYSQL_USER'] %>
   password: <%= ENV['MYSQL_PASSWORD'] %>
-  url: <%= ENV['JAWSDB_URL'] %>
+  url: <%= ENV['DATABASE_URL'] %>
