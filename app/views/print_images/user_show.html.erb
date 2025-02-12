@@ -1,21 +1,51 @@
-userが見る印刷テンプレートshow
+<% breadcrumb :user_show, @print_image %>
 
-<tr>
-        # <% if @print_image.image_for_download.present? %>
-            <% @print_image.image_for_download.each do |image| %>
-                <%= image_tag image.url, size: "150x150" %>
+<div class="container mt-4">
+  <div class="text-center mb-4">
+    <!-- タイトル部分 -->
+    <h1 class="display-4 font-weight-bold text-primary"><%= @print_image.title %></h1>
+  </div>
 
-                <%= link_to "ダウンロード - #{image.filename}", download_print_image_path(@print_image, image_id: image.id), target: "_blank" %>
-                <%= image %>
-            <% end %>
-       
-        #     <img src="http://placehold.jp/150x150"><br>
-        # <%end%>
+  <!-- 情報テーブル -->
+  <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>イベント名</th>
+        <th>説明</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @print_image.event.event_name %></td>
+        <td><%= @print_image.explanation %></td>
+      </tr>
+    </tbody>
+  </table>
 
-      <td><%= @print_image.category.category_name %></td>
-      <td><%= @print_image.event.event_name %></td>
-</tr>
+  <!-- 画像表示エリア -->
+  <div class="row mt-4">
+    <% if @print_image.image_for_download.present? %>
+      <% @print_image.image_for_download.each do |image| %>
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card h-100 d-flex flex-column shadow-sm">
+            <!-- 画像 -->
+            <%= image_tag image.url, class: "card-img-top img-fluid", alt: "画像" %>
+            <div class="card-footer mt-auto text-center">
+              <!-- ダウンロードボタン -->
+              <%= link_to "ダウンロード", download_print_image_path(@print_image, image_id: image.id), class: "btn btn-success btn-sm", target: "_blank" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <!-- 画像がない場合のメッセージ -->
+      <p class="text-center text-muted">画像がありません</p>
+    <% end %>
+  </div>
 
-<li>
-    <%= link_to "userが見る印刷テンプレートindex", print_images_user_index_path %>
-</li>
+  <!-- 戻るリンク -->
+  <div class="text-center mt-4">
+    <%= link_to "戻る", print_images_user_index_path, class: "btn btn-secondary btn-lg" %>
+  </div>
+</div>
+

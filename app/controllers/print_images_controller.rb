@@ -1,4 +1,5 @@
 class PrintImagesController < ApplicationController
+  before_action :authenticate_user!, only: %i[ index show new edit create update destroy ]
   before_action :set_print_image, only: %i[ show edit update destroy download_image ]
 
   # GET /print_images or /print_images.json
@@ -10,7 +11,7 @@ class PrintImagesController < ApplicationController
     logger.debug "Params: #{params[:q]}"
     @q = Event.ransack(params[:q])
     logger.debug "Ransack Query: #{@q.inspect}"
-    @search_results = @q.result(distinct: true).includes(print_images: { thumbnail_image_attachment: :blob })
+    @search_results = @q.result(distinct: true).includes(print_images: { thumbnail_image_attachment: :blob }).page(params[:page]).per(4)
   end
 
   # GET /print_images/1 or /print_images/1.json
@@ -34,16 +35,21 @@ class PrintImagesController < ApplicationController
   # GET /print_images/new
   def new
     @print_image = PrintImage.new
+    @events = Event.all
+    @categories = Category.all
   end
 
   # GET /print_images/1/edit
   def edit
+    @events = Event.all
+    @categories = Category.all
   end
 
   # POST /print_images or /print_images.json
   def create
     @print_image = PrintImage.new(print_image_params)
-
+    @events = Event.all
+    @categories = Category.all
     respond_to do |format|
       if @print_image.save
         format.html { redirect_to @print_image, notice: "Print image was successfully created." }
@@ -86,6 +92,6 @@ class PrintImagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def print_image_params
-      params.require(:print_image).permit(:thumbnail_image, :user_id, :category_id, :event_id, :explanation, :image_for_download => [])
+      params.require(:print_image).permit(:title, :thumbnail_image, :user_id, :category_id, :event_id, :explanation, :image_for_download => [])
     end
 end

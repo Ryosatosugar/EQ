@@ -1,9 +1,19 @@
-<h1>Topページ</h1>
-<h1>このサイトは〜〜〜な人が〜〜〜するためのサイトです</h1>
-    <li>
-        <%= link_to "印刷テンプレートはこちらから", print_images_user_index_path %>
-    </li>
+<% content_for :additional_stylesheets do %>
+  <%= stylesheet_link_tag "only_for_core_pages", media: "all", "data-turbo-track": "reload" %>
+<% end %>
 
-    <li>
-        <%= link_to "単発おもちゃはこちらから", single_posts_user_index_path %>
-    </li>
+<div class="container text-center mt-5">
+<!-- サイトキャッチ -->
+<h1 class="mb-5 text-dark fw-bold">保育士 幼稚園教諭 の負担を軽減！</h1>
+
+<!-- ボタンリンク -->
+<div class="d-grid gap-3 col-md-6 col-10 mx-auto">
+  <%= link_to "印刷テンプレートはこちら", print_images_user_index_path, class: "btn btn-warning btn-lg rounded-pill shadow-lg" %>
+  <!--<%= link_to "単発おもちゃはこちら", single_posts_user_index_path, class: "btn btn-success btn-lg rounded-pill shadow-lg" %>  開発中  -->
+</div>
+
+<!-- サイト概要 -->
+<div>
+  <h3 class="mt-4 text-dark fw-light">欲しい画像をダウンロード、印刷してそのまま利用可能</h3>
+</div>
+</div>
