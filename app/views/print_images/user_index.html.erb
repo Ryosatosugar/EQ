@@ -1,33 +1,60 @@
-userが見る印刷テンプレートindex
-
-<%= search_form_for @q, url: print_images_user_index_path do |f| %>
-  <%= f.collection_select :event_name_cont, Event.select("event_name").distinct, :event_name, :event_name,  include_blank: '選択して下さい' %>
-  <%= f.submit "検索" %>
-<% end %>
+<% breadcrumb :user_index %>
 
 
-
-<% @search_results.each do |event| %>
-  <h2><%= event.event_name  %> の検索結果</h2>
-
-
-  <% event.print_images.each do |print_image| %>
-
-    <tr>
-    <td><% if print_image.thumbnail_image.attached? %>
-      <%= image_tag print_image.thumbnail_image, size: "150x150" %><br>
-    <%else%>
-      <img src="http://placehold.jp/150x150"><br>
-    <%end%><td>
-      <td><%= print_image.category.category_name %></td>
-      <td><%= print_image.event.event_name %></td>
-      <%= link_to "詳しく見る", print_images_user_show_path(print_image.id) %>
-    </tr>
+<!-- 検索フォーム -->
+<div class="bg-light py-3 mb-4 border-bottom">
+  <div class="container">
+    <h2 class="mb-3">イベントを選んで検索</h2>
+    <%= search_form_for @q, url: print_images_user_index_path, html: { class: "form-inline" } do |f| %>
+      <div class="form-group mr-3">
+        <!-- イベント選択 -->
+        <%= f.collection_select :event_name_cont, Event.select("event_name").distinct, :event_name, :event_name, { include_blank: 'イベントを選択してください' }, { class: "form-control custom-select custom-select-lg" } %>
+      </div>
+      <!-- 検索ボタン -->
+      <%= f.submit "検索", class: "btn btn-primary btn-lg px-5" %>
     <% end %>
-<% end %>
+  </div>
+</div>
 
-<li>
-    <%= link_to "topページへ", core_pages_top_path %>
-</li>
+<div class="container">
+  <% if @search_results.empty? %>
+    <p class="text-center text-muted">検索結果が見つかりませんでした。</p>
+  <% else %>
+    <% @search_results.each do |event| %>
+      <!-- 検索結果のタイトル -->
+      <h2 class="mb-4"><%= event.event_name %></h2>
+
+      <div class="row">
+        <% event.print_images.each do |print_image| %>
+          <div class="col-md-3 mb-4">
+            <div class="card h-100 d-flex flex-column">
+              <!-- サムネイル画像 -->
+              <% if print_image.thumbnail_image.attached? %>
+                <%= image_tag print_image.thumbnail_image, class: "card-img-top img-fluid", alt: "サムネイル画像" %>
+              <% else %>
+                <img src="http://placehold.jp/150x150" class="card-img-top img-fluid" alt="代替画像">
+              <% end %>
+
+              <!-- カード内容 -->
+              <div class="card-body text-center">
+                <p class="card-text mb-2"><%= print_image.title %></p>
+                <!-- 詳細ページへのリンク -->
+                <%= link_to "詳しく見る", print_images_user_show_path(print_image.id), class: "btn btn-primary btn-sm" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="d-flex justify-content-center mt-4">
+  <%= paginate @search_results, theme: 'bootstrap-5' %>
+</div>
+
+
+
+
 
 

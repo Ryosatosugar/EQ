@@ -1,61 +1,56 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Eq</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-    <head>
-        <title>Eq</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <%= csrf_meta_tags %>
-        <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= yield(:additional_stylesheets) %>
 
-        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track':
-        'reload' %>
-        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </head>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+        /* パンくずリストのスタイリング */
+        .breadcrumbs-container {
+            padding: 10px 15px; /* 内側余白 */
+        }
+    </style>
+</head>
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar sticky-top d-flex" style="background-color: #FF8B94;" data-bs-theme="dark">
+    <!-- サイトタイトルを左寄せ -->
+    <div class="me-auto">
+        <h1 class="text-light ms-3">保育レディ (Hoiku Ready)</h1>
+    </div>
 
-    <body>
+    <!-- 管理者の場合にログアウトボタンを配置 -->
+    <% if user_signed_in? %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+    <% end %>
 
-        <nav
-            class="navbar bg-primary d-flex justify-content-end sticky-top"
-            data-bs-theme="dark">
-       
+    <!-- トップページへのリンクを右寄せ -->
+    <div class="me-3">
+        <%= link_to "トップページへ", core_pages_top_path, class: "btn btn-light" %>
+    </div>
+</nav>
 
-        <div class="<%= header_button %>">
-            <%= link_to "Top", core_pages_top_path %>
-        </div>
-        <% if user_signed_in? %>
-            <% if current_user.admin == true %>
+    <!-- パンくずリスト -->
+    <div class="breadcrumbs-container">
+        <%= breadcrumbs separator: " &rsaquo; " %>
+    </div>
 
-                <%= render partial: 'layouts/header_admin' %>
-
-            <% else %>
-
-                <%= render partial: 'layouts/header_signedup_user' %>
-
-            <% end %>
-        <% else %>
-            <%= render partial: 'layouts/header_user' %>
-        <% end %>
-    </nav>
-
+    <!-- 通知メッセージ -->
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <% if user_signed_in? %>
-
-        <% if current_user.admin == true %>
-
-            <%= render partial: 'layouts/sidebar_admin' %>
-
-        <% else %>
-
-        <% end %>
-
-    <% else %>
-
+    <!-- 管理者向けサイドバー -->
+    <% if user_signed_in? && current_user.admin %>
+        <%= render partial: 'layouts/sidebar_admin' %>
     <% end %>
 
+    <!-- メインコンテンツ -->
     <%= yield %>
-
 </body>
-
 </html>
