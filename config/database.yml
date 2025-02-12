@@ -50,6 +50,12 @@ test:
 #
 production:
   <<: *default
-  database: eq_production
-  username: eq
-  password: <%= ENV['EQ_DATABASE_PASSWORD'] %>
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+  database: <%= ENV['MYSQL_DATABASE'] %>
+  host: <%= ENV['MYSQL_HOST'] %>
+  username: <%= ENV['MYSQL_USER'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+  url: <%= ENV['JAWSDB_URL'] %>

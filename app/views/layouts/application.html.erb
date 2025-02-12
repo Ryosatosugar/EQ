@@ -25,6 +25,11 @@
         <h1 class="text-light ms-3">保育レディ (Hoiku Ready)</h1>
     </div>
 
+    <!-- 管理者の場合にログアウトボタンを配置 -->
+    <% if user_signed_in? %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+    <% end %>
+
     <!-- トップページへのリンクを右寄せ -->
     <div class="me-3">
         <%= link_to "トップページへ", core_pages_top_path, class: "btn btn-light" %>
