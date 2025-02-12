@@ -34,7 +34,7 @@ services:
         consistency: consistent
 
       - type: volume
-        source: bundle_install
+        source: bundle
         target: /usr/local/bundle
         consistency: delegated
 
@@ -100,7 +100,7 @@ volumes:
     driver: local
   db_volume:
     driver: local
-  bundle_install:
+  bundle:
     driver: local
   node_modules:
     driver: local
