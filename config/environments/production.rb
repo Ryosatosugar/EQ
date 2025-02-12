@@ -3,6 +3,24 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+
+  config.force_ssl = true
+
+
+
+  # ホスト認証: Heroku のホスト名を許可する
+  config.hosts << "eq-app-b952302c7a99.herokuapp.com"
+
+
+
+
+
+
+  config.action_controller.asset_host = 'https://eq-app.herokuapp.com'
+  config.action_mailer.asset_host = config.action_controller.asset_host
+
+
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

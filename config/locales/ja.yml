@@ -22,3 +22,11 @@ ja:
         content_form_answer: 内容
         image_form_answer: 画像
         best_answer_form_answer: ベストアンサー
+
+  views:
+      pagination:
+        first: '最初'
+        last: '最後'
+        previous: '前'
+        next: '次'
+        truncate: '...'

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :categories
   root :to => "core_pages#top"
   get 'core_pages/top'
-  resources :form_answers
+  #resources :form_answers
   resources :admins
   get "admin_users" => "admins#admin_users"
   get "admin_questions" =>"admins#admin_questions"

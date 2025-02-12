@@ -1,4 +1,5 @@
 class SinglePostsController < ApplicationController
+  before_action :authenticate_user!, only: %i[ index show new edit create update destroy ]
   before_action :set_single_post, only: %i[ show edit update destroy ]
 
   # GET /single_posts or /single_posts.json
