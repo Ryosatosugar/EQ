@@ -1,6 +1,6 @@
-FROM ruby:3.3.0
+FROM ruby:3.0.7
 
-ENV APP_HOME eq
+ENV APP_HOME=eq
 
 RUN curl -sL https://deb.nodesource.com/setup_22.x | bash \
   && apt-get update -qq \
@@ -13,16 +13,18 @@ RUN curl -sL https://deb.nodesource.com/setup_22.x | bash \
 
 RUN mkdir /$APP_HOME
 WORKDIR /$APP_HOME
-ENV LANG C.UTF-8
+ENV LANG=C.UTF-8
 
 COPY Gemfile Gemfile.lock /$APP_HOME
-RUN gem install bundler:2.2.33 \
+RUN gem install bundler:2.3.25 \
   && bundle config --global build.nokogiri --use-system-libraries \
   && bundle config --global jobs 4 retry 3 \
   && bundle install \
   && rm -rf /usr/local/bundle/cache/*
-RUN rm -rf node_modules && rm -rf tmp/cache/webpacker
-RUN yarn install --check-files
+
+RUN bundle exec rails webpacker:install
+RUN SECRET_KEY_BASE=placeholder bundle exec rails assets:precompile \
+    && bundle exec rails assets:clean
 
 COPY . .
 
