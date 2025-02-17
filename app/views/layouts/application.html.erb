@@ -9,7 +9,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
     <%= yield(:additional_stylesheets) %>
-
+    <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
     <style>
         /* パンくずリストのスタイリング */
         .breadcrumbs-container {
@@ -52,6 +52,6 @@
 
     <!-- メインコンテンツ -->
     <%= yield %>
-    <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
+
 </body>
 </html>
