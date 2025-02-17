@@ -52,17 +52,6 @@ ActiveRecord::Schema.define(version: 2025_01_09_065703) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "form_answers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "name_form_answer"
-    t.text "content_form_answer"
-    t.string "image_form_answer"
-    t.boolean "best_answer_form_answer"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_form_answers_on_user_id"
-  end
-
   create_table "print_images", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "thumbnail_image"
     t.bigint "user_id", null: false
@@ -123,7 +112,6 @@ ActiveRecord::Schema.define(version: 2025_01_09_065703) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "form_answers", "users"
   add_foreign_key "print_images", "categories"
   add_foreign_key "print_images", "events"
   add_foreign_key "print_images", "users"
