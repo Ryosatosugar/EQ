@@ -1,4 +1,4 @@
-FROM ruby:3.0.7
+FROM ruby:3.2.7
 
 ENV APP_HOME=eq
 
@@ -16,7 +16,7 @@ WORKDIR /$APP_HOME
 ENV LANG=C.UTF-8
 
 COPY Gemfile Gemfile.lock /$APP_HOME
-RUN gem install bundler:2.3.25 \
+RUN gem install bundler:2.5.6 \
   && bundle config --global build.nokogiri --use-system-libraries \
   && bundle config --global jobs 4 retry 3 \
   && bundle install \
