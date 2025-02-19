@@ -8,3 +8,5 @@
 - [デザインイメージを使った仕様書](https://drive.google.com/file/d/1BWz41_ZBMU5N7ruiHXg2V97be5UMK8Lz/view?usp=drive_link)
 
 2/19 dartsass-railsが放置されていそう→使わないでアプリを作成することに
+
+ruby rails bundler 等のバージョン関係
