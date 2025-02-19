@@ -73,7 +73,7 @@ gem 'devise'
 # スラックに通知機能追加
 gem 'slack-notifier'
 
-gem 'dartsass-rails'
+
 
 # gem 'bootstrap', '~> 5.3.3'
 
