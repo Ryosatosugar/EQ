@@ -1,0 +1,4 @@
+// get-assigned-identifiers@1.2.0 downloaded from https://ga.jspm.io/npm:get-assigned-identifiers@1.2.0/index.js
+
+import e from"assert";var t={};var i=e;t=function getAssignedIdentifiers(e,t){i.equal(typeof e,"object","get-assigned-identifiers: node must be object");i.equal(typeof e.type,"string","get-assigned-identifiers: node must have a type");t=t||[];"ImportDeclaration"===e.type&&e.specifiers.forEach((function(e){getAssignedIdentifiers(e,t)}));"ImportDefaultSpecifier"!==e.type&&"ImportNamespaceSpecifier"!==e.type&&"ImportSpecifier"!==e.type||(e=e.local);"RestElement"===e.type&&(e=e.argument);"ArrayPattern"===e.type&&e.elements.forEach((function(e){e&&getAssignedIdentifiers(e,t)}));"ObjectPattern"===e.type&&e.properties.forEach((function(e){"Property"===e.type?getAssignedIdentifiers(e.value,t):"RestElement"===e.type&&getAssignedIdentifiers(e,t)}));"Identifier"===e.type&&t.push(e);return t};var r=t;export default r;
+

@@ -1,0 +1,4 @@
+// depd@2.0.0 downloaded from https://ga.jspm.io/npm:depd@2.0.0/lib/browser/index.js
+
+var e={};e=depd;function depd(e){if(!e)throw new TypeError("argument namespace is required");function deprecate(e){}deprecate._file=void 0;deprecate._ignored=true;deprecate._namespace=e;deprecate._traced=false;deprecate._warned=Object.create(null);deprecate.function=wrapfunction;deprecate.property=wrapproperty;return deprecate}function wrapfunction(e,r){if("function"!==typeof e)throw new TypeError("argument fn must be a function");return e}function wrapproperty(e,r,t){if(!e||"object"!==typeof e&&"function"!==typeof e)throw new TypeError("argument obj must be object");var n=Object.getOwnPropertyDescriptor(e,r);if(!n)throw new TypeError("must call property on owner object");if(!n.configurable)throw new TypeError("property must be configurable")}var r=e;export default r;
+

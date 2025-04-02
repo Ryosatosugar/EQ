@@ -1,0 +1,4 @@
+// decompress-response@6.0.0 downloaded from https://ga.jspm.io/npm:decompress-response@6.0.0/index.js
+
+import e from"stream";import r from"zlib";import o from"mimic-response";var t={};const{Transform:s,PassThrough:n}=e;const i=r;const c=o;t=e=>{const r=(e.headers["content-encoding"]||"").toLowerCase();if(!["gzip","deflate","br"].includes(r))return e;const o="br"===r;if(o&&"function"!==typeof i.createBrotliDecompress){e.destroy(new Error("Brotli is not supported on Node.js < 12"));return e}let t=true;const a=new s({transform(e,r,o){t=false;o(null,e)},flush(e){e()}});const p=new n({autoDestroy:false,destroy(r,o){e.destroy();o(r)}});const f=o?i.createBrotliDecompress():i.createUnzip();f.once("error",r=>{!t||e.readable?p.destroy(r):p.end()});c(e,p);e.pipe(a).pipe(f).pipe(p);return p};var a=t;export default a;
+

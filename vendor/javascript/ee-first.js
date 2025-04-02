@@ -1,0 +1,4 @@
+// ee-first@1.1.1 downloaded from https://ga.jspm.io/npm:ee-first@1.1.1/index.js
+
+var r={};r=first;function first(r,e){if(!Array.isArray(r))throw new TypeError("arg must be an array of [ee, events...] arrays");var n=[];for(var a=0;a<r.length;a++){var t=r[a];if(!Array.isArray(t)||t.length<2)throw new TypeError("each array member must be [ee, events...]");var l=t[0];for(var v=1;v<t.length;v++){var o=t[v];var u=listener(o,callback);l.on(o,u);n.push({ee:l,event:o,fn:u})}}function callback(){cleanup();e.apply(null,arguments)}function cleanup(){var r;for(var e=0;e<n.length;e++){r=n[e];r.ee.removeListener(r.event,r.fn)}}function thunk(r){e=r}thunk.cancel=cleanup;return thunk}function listener(r,e){return function onevent(n){var a=new Array(arguments.length);var t=this;var l="error"===r?n:null;for(var v=0;v<a.length;v++)a[v]=arguments[v];e(l,t,r,a)}}var e=r;export default e;
+

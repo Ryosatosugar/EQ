@@ -1,0 +1,4 @@
+// uid-safe@2.1.5 downloaded from https://ga.jspm.io/npm:uid-safe@2.1.5/index.js
+
+import e from"random-bytes";var n="undefined"!==typeof globalThis?globalThis:"undefined"!==typeof self?self:global;var r={};var t=e;var i=/=+$/;var o=/\+/g;var u=/\//g;r=uid;r.sync=uidSync;function uid(e,r){if(void 0!==r&&"function"!==typeof r)throw new TypeError("argument callback must be a function");if(!r&&!n.Promise)throw new TypeError("argument callback is required");return r?generateUid(e,r):new Promise((function executor(n,r){generateUid(e,(function onUid(e,t){if(e)return r(e);n(t)}))}))}function uidSync(e){return toString(t.sync(e))}function generateUid(e,n){t(e,(function(e,r){if(e)return n(e);n(null,toString(r))}))}function toString(e){return e.toString("base64").replace(i,"").replace(o,"-").replace(u,"_")}var a=r;const c=r.sync;export default a;export{c as sync};
+

@@ -1,0 +1,4 @@
+// cookie-signature@1.0.6 downloaded from https://ga.jspm.io/npm:cookie-signature@1.0.6/index.js
+
+import e from"crypto";var r={};var t=e;r.sign=function(e,r){if("string"!=typeof e)throw new TypeError("Cookie value must be provided as a string.");if("string"!=typeof r)throw new TypeError("Secret string must be provided.");return e+"."+t.createHmac("sha256",r).update(e).digest("base64").replace(/\=+$/,"")};r.unsign=function(e,t){if("string"!=typeof e)throw new TypeError("Signed cookie string must be provided.");if("string"!=typeof t)throw new TypeError("Secret string must be provided.");var i=e.slice(0,e.lastIndexOf(".")),n=r.sign(i,t);return sha1(n)==sha1(e)&&i};function sha1(e){return t.createHash("sha1").update(e).digest("hex")}const i=r.sign,n=r.unsign;export default r;export{i as sign,n as unsign};
+

@@ -1,0 +1,4 @@
+// fresh@0.5.2 downloaded from https://ga.jspm.io/npm:fresh@0.5.2/index.js
+
+var r={};var e=/(?:^|,)\s*?no-cache\s*?(?:,|$)/;r=fresh;function fresh(r,a){var t=r["if-modified-since"];var s=r["if-none-match"];if(!t&&!s)return false;var f=r["cache-control"];if(f&&e.test(f))return false;if(s&&"*"!==s){var n=a["etag"];if(!n)return false;var i=true;var u=parseTokenList(s);for(var v=0;v<u.length;v++){var o=u[v];if(o===n||o==="W/"+n||"W/"+o===n){i=false;break}}if(i)return false}if(t){var c=a["last-modified"];var p=!c||!(parseHttpDate(c)<=parseHttpDate(t));if(p)return false}return true}function parseHttpDate(r){var e=r&&Date.parse(r);return"number"===typeof e?e:NaN}function parseTokenList(r){var e=0;var a=[];var t=0;for(var s=0,f=r.length;s<f;s++)switch(r.charCodeAt(s)){case 32:t===e&&(t=e=s+1);break;case 44:a.push(r.substring(t,e));t=e=s+1;break;default:e=s+1;break}a.push(r.substring(t,e));return a}var a=r;export default a;
+

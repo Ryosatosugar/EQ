@@ -1,0 +1,4 @@
+// rijs.serve@1.1.1 downloaded from https://ga.jspm.io/npm:rijs.serve@1.1.1/index.js
+
+import e from"compression";import r from"utilise/send";import s from"utilise/key";import t from"path";import o from"express";import i from"utilise/log";import n from"utilise/lo";var u={};u=function serve(e,{server:r,serve:serve,client:s="ripple"}={}){f("creating");const{http:t=r}=e.server||{};if(!t)return e;const o=expressify(t),i=local(serve,s),n=m();o.use(`/${s}.js`,n,p(i(j?"min.js":"bundle.js")));o.use(`/${s}.bundle.js`,n,p(i("bundle.js")));o.use(`/${s}.min.js`,n,p(i("min.js")));return e};const expressify=e=>e.express||l("_events.request")(e)||e.on("request",c())._events.request;const local=(e,r)=>s=>v(e,`./${r}.${s}`);const m=e,p=r,l=s,{resolve:v}=t,c=o,f=i("[ri/serve]"),d=n,j="production"==d("production");var a=u;export default a;
+

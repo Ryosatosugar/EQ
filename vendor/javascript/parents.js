@@ -1,0 +1,4 @@
+// parents@1.0.1 downloaded from https://ga.jspm.io/npm:parents@1.0.1/index.js
+
+import r from"path-platform";import t from"process";var e={};var n=t;var a=r;e=function(r,t){void 0===r&&(r=n.cwd());t||(t={});var e=t.platform||n.platform;var i=/^win/.test(e);var o=i?a.win32:a;var c=i&&"c:."===o.normalize("c:")?fixNormalize(o.normalize):o.normalize;var f=i?/[\\\/]/:"/";var u=i?"":"/";var join=function(r,t){var e=[r,t].filter((function(r){return r&&"string"===typeof r}));return c(e.join(i?"\\":"/"))};var v=c(r).split(f).reduce((function(r,t,e){return r.concat(join(r[e],t))}),[u]).slice(1).reverse();return v[0]===v[1]?[v[0]]:i&&/^\\/.test(r)?v.slice(0,-1).map((function(r){var t=r.charAt(0);return"\\"===t?r:"."===t?"\\"+r.slice(1):"\\"+r})):v;function fixNormalize(r){return function(t){return r(t).replace(/:\.$/,":")}}};var i=e;export default i;
+

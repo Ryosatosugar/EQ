@@ -1,0 +1,4 @@
+// json-stable-stringify@0.0.1 downloaded from https://ga.jspm.io/npm:json-stable-stringify@0.0.1/index.js
+
+import r from"jsonify";var n={};var t="undefined"!==typeof JSON?JSON:r;n=function(r,n){n||(n={});"function"===typeof n&&(n={cmp:n});var o=n.cmp&&function(r){return function(n){return function(t,e){var i={key:t,value:n[t]};var o={key:e,value:n[e]};return r(i,o)}}}(n.cmp);return function stringify(r){if("object"!==typeof r||null===r)return t.stringify(r);if(e(r)){var n=[];for(var u=0;u<r.length;u++)n.push(stringify(r[u]));return"["+n.join(",")+"]"}var a=i(r).sort(o&&o(r));var n=[];for(var u=0;u<a.length;u++){var f=a[u];n.push(stringify(f)+":"+stringify(r[f]))}return"{"+n.join(",")+"}"}(r)};var e=Array.isArray||function(r){return"[object Array]"==={}.toString.call(r)};var i=Object.keys||function(r){var n=Object.prototype.hasOwnProperty||function(){return true};var t=[];for(var e in r)n.call(r,e)&&t.push(e);return t};var o=n;export default o;
+

@@ -1,0 +1,4 @@
+// defer-to-connect@2.0.1 downloaded from https://ga.jspm.io/npm:defer-to-connect@2.0.1/dist/source/index.js
+
+var e={};Object.defineProperty(e,"__esModule",{value:true});function isTLSSocket(e){return e.encrypted}const deferToConnect=(e,n)=>{let o;if("function"===typeof n){const e=n;o={connect:e}}else o=n;const t="function"===typeof o.connect;const c="function"===typeof o.secureConnect;const r="function"===typeof o.close;const onConnect=()=>{t&&o.connect();isTLSSocket(e)&&c&&(e.authorized?o.secureConnect():e.authorizationError||e.once("secureConnect",o.secureConnect));r&&e.once("close",o.close)};e.writable&&!e.connecting?onConnect():e.connecting?e.once("connect",onConnect):e.destroyed&&r&&o.close(e._hadError)};e.default=deferToConnect;e=deferToConnect;e.default=deferToConnect;var n=e;const o=e.__esModule;export default n;export{o as __esModule};
+

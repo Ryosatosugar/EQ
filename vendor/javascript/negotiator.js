@@ -1,0 +1,9 @@
+// negotiator@0.6.4 downloaded from https://ga.jspm.io/npm:negotiator@0.6.4/index.js
+
+import t from"./lib/charset.js";import e from"./lib/encoding.js";import o from"./lib/language.js";import r from"./lib/mediaType.js";var a={};var i=t;var p=e;var g=o;var n=r;a=Negotiator;a.Negotiator=Negotiator;
+/**
+ * Create a Negotiator instance from a request.
+ * @param {object} request
+ * @public
+ */function Negotiator(t){if(!(this instanceof Negotiator))return new Negotiator(t);this.request=t}Negotiator.prototype.charset=function charset(t){var e=this.charsets(t);return e&&e[0]};Negotiator.prototype.charsets=function charsets(t){return i(this.request.headers["accept-charset"],t)};Negotiator.prototype.encoding=function encoding(t,e){var o=this.encodings(t,e);return o&&o[0]};Negotiator.prototype.encodings=function encodings(t,e){return p(this.request.headers["accept-encoding"],t,e)};Negotiator.prototype.language=function language(t){var e=this.languages(t);return e&&e[0]};Negotiator.prototype.languages=function languages(t){return g(this.request.headers["accept-language"],t)};Negotiator.prototype.mediaType=function mediaType(t){var e=this.mediaTypes(t);return e&&e[0]};Negotiator.prototype.mediaTypes=function mediaTypes(t){return n(this.request.headers.accept,t)};Negotiator.prototype.preferredCharset=Negotiator.prototype.charset;Negotiator.prototype.preferredCharsets=Negotiator.prototype.charsets;Negotiator.prototype.preferredEncoding=Negotiator.prototype.encoding;Negotiator.prototype.preferredEncodings=Negotiator.prototype.encodings;Negotiator.prototype.preferredLanguage=Negotiator.prototype.language;Negotiator.prototype.preferredLanguages=Negotiator.prototype.languages;Negotiator.prototype.preferredMediaType=Negotiator.prototype.mediaType;Negotiator.prototype.preferredMediaTypes=Negotiator.prototype.mediaTypes;var s=a;const c=a.Negotiator;export{c as Negotiator,s as default};
+

@@ -1,0 +1,4 @@
+// mimic-response@3.1.0 downloaded from https://ga.jspm.io/npm:mimic-response@3.1.0/index.js
+
+var e={};const t=["aborted","complete","headers","httpVersion","httpVersionMinor","httpVersionMajor","method","rawHeaders","rawTrailers","setTimeout","socket","statusCode","statusMessage","trailers","url"];e=(e,o)=>{if(o._readableState.autoDestroy)throw new Error("The second stream must have the `autoDestroy` option set to `false`");const r=new Set(Object.keys(e).concat(t));const s={};for(const t of r)t in o||(s[t]={get(){const o=e[t];const r="function"===typeof o;return r?o.bind(e):o},set(o){e[t]=o},enumerable:true,configurable:false});Object.defineProperties(o,s);e.once("aborted",()=>{o.destroy();o.emit("aborted")});e.once("close",()=>{e.complete&&o.readable?o.once("end",()=>{o.emit("close")}):o.emit("close")});return o};var o=e;export default o;
+

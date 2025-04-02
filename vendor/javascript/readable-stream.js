@@ -1,0 +1,4 @@
+// readable-stream@2.0.6 downloaded from https://ga.jspm.io/npm:readable-stream@2.0.6/readable.js
+
+import r from"stream";import"process-nextick-args";import"isarray";import"buffer";import"events";import"core-util-is";import"inherits";import"util";import"util-deprecate";import"process";import{d as e,a as t,b as a}from"./_/e514ce89.js";import"string_decoder";import{d as o}from"./_/7082876a.js";import{d as i}from"./_/ee96ce03.js";var s={},m=false;function dew(){if(m)return s;m=true;var p=function(){try{return r}catch(r){}}();s=s=e();s.Stream=p||s;s.Readable=s;s.Writable=t();s.Duplex=a();s.Transform=o();s.PassThrough=i();return s}const p=dew();var u=p.Stream,n=p.Readable,c=p.Writable,d=p.Duplex,f=p.Transform,l=p.PassThrough;export default p;export{d as Duplex,l as PassThrough,n as Readable,u as Stream,f as Transform,c as Writable,dew as __dew};
+

@@ -1,0 +1,4 @@
+// is-typedarray@1.0.0 downloaded from https://ga.jspm.io/npm:is-typedarray@1.0.0/index.js
+
+var r={};r=isTypedArray;isTypedArray.strict=isStrictTypedArray;isTypedArray.loose=isLooseTypedArray;var t=Object.prototype.toString;var e={"[object Int8Array]":true,"[object Int16Array]":true,"[object Int32Array]":true,"[object Uint8Array]":true,"[object Uint8ClampedArray]":true,"[object Uint16Array]":true,"[object Uint32Array]":true,"[object Float32Array]":true,"[object Float64Array]":true};function isTypedArray(r){return isStrictTypedArray(r)||isLooseTypedArray(r)}function isStrictTypedArray(r){return r instanceof Int8Array||r instanceof Int16Array||r instanceof Int32Array||r instanceof Uint8Array||r instanceof Uint8ClampedArray||r instanceof Uint16Array||r instanceof Uint32Array||r instanceof Float32Array||r instanceof Float64Array}function isLooseTypedArray(r){return e[t.call(r)]}var a=r;export default a;
+
