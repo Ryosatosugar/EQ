@@ -14,3 +14,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( only_for_core_pages.css )
 
+Rails.application.config.assets.precompile += %w( bootstrap.min.js popper.js )
