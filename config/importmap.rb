@@ -3,7 +3,7 @@
 pin "application", preload: true
 pin "popper" # @1.0.1
 pin "bootstrap" # @5.3.3
-
+pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@5.3.3/dist/js/bootstrap.esm.js"
 pin "@popperjs/core", to: "@popperjs--core.js" # @2.11.8
 pin "#lib/internal/streams/from.js", to: "#lib--internal--streams--from.js.js" # @3.6.2
 pin "#lib/internal/streams/stream.js", to: "#lib--internal--streams--stream.js.js" # @2.3.8
