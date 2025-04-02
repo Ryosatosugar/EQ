@@ -80,3 +80,5 @@ gem 'jquery-rails'
 
 # ページネーション
 gem "kaminari-bootstrap", "~> 3.0"
+
+gem "importmap-rails", "~> 2.1"
