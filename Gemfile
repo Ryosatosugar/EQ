@@ -12,7 +12,7 @@ gem 'mysql2', '~> 0.5'
 # Use Puma as the app server
 gem 'puma', '~> 6.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
+# gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -74,7 +74,9 @@ gem 'slack-notifier'
 
 # gem 'dartsass-rails'
 
-# gem 'bootstrap', '~> 5.3.3'
+gem 'bootstrap', '~> 5.3'
+gem 'autoprefixer-rails'
+gem 'sassc-rails'
 
 gem 'jquery-rails'
 
