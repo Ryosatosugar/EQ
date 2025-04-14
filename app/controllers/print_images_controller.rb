@@ -25,8 +25,9 @@ class PrintImagesController < ApplicationController
   def download
     @print_image = PrintImage.find(params[:id])
     image = @print_image.image_for_download.find(params[:image_id])
+  
     if image.present?
-      redirect_to image.service_url(disposition: 'attachment')
+      redirect_to rails_blob_url(image, disposition: 'attachment', host: request.base_url)
     else
       redirect_to @print_image, alert: '画像が見つかりませんでした。'
     end
