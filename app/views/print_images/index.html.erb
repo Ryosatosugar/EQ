@@ -40,13 +40,13 @@
 
             <!-- Actions -->
             <td class="text-center align-middle">
-              <%= link_to 'Show', print_image, class: "btn btn-primary btn-sm" %>
+              <%= link_to '見る', print_image, class: "btn btn-primary btn-sm" %>
             </td>
             <td class="text-center align-middle">
-              <%= link_to 'Edit', edit_print_image_path(print_image), class: "btn btn-warning btn-sm" %>
+              <%= link_to '編集', edit_print_image_path(print_image), class: "btn btn-warning btn-sm" %>
             </td>
             <td class="text-center align-middle">
-              <%= link_to 'Destroy', print_image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+              <%= link_to "削除", print_image, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
             </td>
           </tr>
         <% end %>

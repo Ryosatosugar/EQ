@@ -7,6 +7,8 @@ RUN apt-get update -qq \
      tzdata \
      build-essential \
      libpq-dev \
+     libsass-dev \
+     g++ \
      vim \
      bash \
   && cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
