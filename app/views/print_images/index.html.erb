@@ -46,16 +46,16 @@
               <%= link_to 'Edit', edit_print_image_path(print_image), class: "btn btn-warning btn-sm" %>
             </td>
             <td class="text-center align-middle">
-              <%= button_to 'Destroy', print_image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
-
-              <%= button_to "削除", print_image_path(print_image),
+              <div data-controller="print_images">
+                <%= link_to '削除', print_image_path(print_image),
                 method: :delete,
                 data: {
-                  controller: "delete",
-                  action: "delete#delete",
-                  deleteUrlValue: print_image_path(print_image)
-                },
-                form: { "data-turbo-confirm": "本当に削除しますか？" } %>
+                  controller: "confirm",
+                  action: "click->confirm#confirm",
+                  confirm: "本当に削除しますか？"
+                } %>
+
+              </div>
 
 
               
