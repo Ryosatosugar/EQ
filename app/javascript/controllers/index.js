@@ -1,5 +1,6 @@
-import { application } from "./application";
-import { registerControllers } from "@hotwired/stimulus-loading";
+import { Application } from "@hotwired/stimulus";
+import { definitionsFromGlob } from "@hotwired/stimulus-loading";
 
-const controllers = import.meta.glob("./**/*_controller.js");
-registerControllers(application, controllers);
+const application = Application.start();
+const controllerFiles = import.meta.glob("./**/*_controller.js");
+application.load(definitionsFromGlob(controllerFiles));
