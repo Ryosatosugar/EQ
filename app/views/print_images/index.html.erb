@@ -47,6 +47,15 @@
             </td>
             <td class="text-center align-middle">
               <%= link_to 'Destroy', print_image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+              <%= button_to "削除", print_image_path(print_image),
+                method: :delete,
+                data: {
+                  controller: "delete",
+                  action: "delete#delete",
+                  deleteUrlValue: print_image_path(print_image)
+                },
+                form: { "data-turbo-confirm": "本当に削除しますか？" } %>
+
             </td>
           </tr>
         <% end %>
