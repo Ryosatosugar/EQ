@@ -1,5 +1,4 @@
-// app/javascript/controllers/index.js
-// 空でもOK、もしくは Stimulus を使う場合は↓のように記述
-// import { application } from "controllers/application"
-// import HelloController from "./hello_controller"
-// application.register("hello", HelloController)
+// Import and register all your controllers from the importmap via controllers/**/*_controller
+import { application } from "controllers/application"
+import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
+eagerLoadControllersFrom("controllers", application)
