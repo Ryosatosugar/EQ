@@ -46,16 +46,9 @@
               <%= link_to 'Edit', edit_print_image_path(print_image), class: "btn btn-warning btn-sm" %>
             </td>
             <td class="text-center align-middle">
-            <div data-controller="print_images">
-              <%= link_to '削除', print_image_path(print_image),
-              method: :delete,
-              data: {
-                controller: "confirm",
-                action: "click->confirm#confirm",
-                confirm: "本当に削除しますか？"
-              } %>
-
-            </div>
+              <%= link_to "削除", print_image_path(print_image),
+              data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" },
+              class: "btn btn-danger" %>
             </td>
           </tr>
         <% end %>
