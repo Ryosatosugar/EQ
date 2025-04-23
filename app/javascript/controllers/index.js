@@ -1,6 +1,6 @@
-import { Application } from "@hotwired/stimulus";
-import { definitionsFromGlob } from "@hotwired/stimulus-loading";
+import { Application } from "stimulus"
+import { definitionsFromContext } from "stimulus/webpack-helpers"
 
-const application = Application.start();
-const controllerFiles = import.meta.glob("./**/*_controller.js");
-application.load(definitionsFromGlob(controllerFiles));
+const application = Application.start()
+const context = require.context("./", true, /_controller\.js$/)
+application.load(definitionsFromContext(context))
