@@ -7,7 +7,7 @@ Rails.application.configure do
   # config.hosts << "eq-app-b952302c7a99.herokuapp.com"
   config.hosts << "hoikuready-2932c7a498ef.herokuapp.com"
 
-  config.action_controller.asset_host = 'https://eq-app-b952302c7a99.herokuapp.com/'
+  config.action_controller.asset_host = 'hoikuready-2932c7a498ef.herokuapp.com/'
   config.action_mailer.asset_host = config.action_controller.asset_host
 
   # Code is not reloaded between requests.

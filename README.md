@@ -19,9 +19,11 @@ docker-compose up
 # デプロイ
 heroku login
 heroku container:login
+docker compose run -e RAILS_ENV=production web bundle exec rails assets:precompile
 heroku container:push web
 heroku container:release web
 heroku restart
+
 
 # Heroku上でアセットをプリコンパイル
 heroku run rails assets:precompile
