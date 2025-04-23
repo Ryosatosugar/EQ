@@ -7,7 +7,8 @@
 - [要件定義書](https://drive.google.com/file/d/15HEskz4jxJ2jWMFoKeaGEZ6aj6wbWTXn/view?usp=drive_link)
 - [デザインイメージを使った仕様書](https://drive.google.com/file/d/1BWz41_ZBMU5N7ruiHXg2V97be5UMK8Lz/view?usp=drive_link)
 
-サイトURL https://eq-app-b952302c7a99.herokuapp.com/
+サイトURL　 ユーザー https://hoikuready-2932c7a498ef.herokuapp.com
+           アドミン　https://hoikuready-2932c7a498ef.herokuapp.com/users/sign_in
 
 
 
