@@ -4,7 +4,7 @@
 
 ## 概要
 
-保育園や幼稚園の現場では、教室の壁に貼る装飾や子どもの遊びに使う紙を、季節やイベントに合わせて毎回作成する必要があります。このサイトでは、デザイン済みの用紙を検索・ダウンロードでき、作業効率を大幅に向上させることができます。
+保育園や幼稚園の現場では、教室の壁に貼る装飾や子どもの遊びに使う紙を、季節やイベントに合わせて毎回作成する必要があります。このサイトでは、デザイン済みの用紙を検索・ダウンロードでき、作業効率を向上させることができます。
 
 ## 主な機能
 
@@ -38,54 +38,51 @@
 
 ## アプリURL
 
-* デプロイ済みサイト: [https://hoikuready-2932c7a498ef.herokuapp.com](https://hoikuready-2932c7a498ef.herokuapp.com)
+* ユーザー向けサイト: [https://hoikuready-2932c7a498ef.herokuapp.com](https://hoikuready-2932c7a498ef.herokuapp.com)
+* 管理者ログインページ: [https://hoikuready-2932c7a498ef.herokuapp.com/users/sign\_in](https://hoikuready-2932c7a498ef.herokuapp.com/users/sign_in)
 
 ## リポジトリ
 
 * GitHub: [https://github.com/Ryosatosugar/EQ](https://github.com/Ryosatosugar/EQ)
 
-## ライセンス
-
-このプロジェクトはMITライセンスのもとで公開されています。詳細はLICENSEファイルをご覧ください。
-
 ## 連絡先
 
 * 開発者: Ryosatosugar
 * GitHub: [https://github.com/Ryosatosugar](https://github.com/Ryosatosugar)
-  Gmail: [ryosatosugar0708@gmail.com](mailto:ryosatosugar0708@gmail.com)
-
-
-
-
-
-
+* Gmail: [ryosugarmed@gmail.com](mailto:ryosugarmed@gmail.com)
 
 ## アプリの要件定義と設計
-- [DBのリレーションとフォームの実装](https://github.com/Ryosatosugar/EQ/issues/4)
-- [アプリの要件定義](https://github.com/Ryosatosugar/EQ/issues/56)
-- [仕様書と見積もり](https://github.com/Ryosatosugar/EQ/issues/55)
+
+* [DBのリレーションとフォームの実装](https://github.com/Ryosatosugar/EQ/issues/4)
+* [アプリの要件定義](https://github.com/Ryosatosugar/EQ/issues/56)
+* [仕様書と見積もり](https://github.com/Ryosatosugar/EQ/issues/55)
 
 ## 参考資料
-- [要件定義書](https://drive.google.com/file/d/15HEskz4jxJ2jWMFoKeaGEZ6aj6wbWTXn/view?usp=drive_link)
-- [デザインイメージを使った仕様書](https://drive.google.com/file/d/1BWz41_ZBMU5N7ruiHXg2V97be5UMK8Lz/view?usp=drive_link)
 
-サイトURL　 ユーザー https://hoikuready-2932c7a498ef.herokuapp.com
-           アドミン　https://hoikuready-2932c7a498ef.herokuapp.com/users/sign_in
+* [要件定義書（Google Drive）](https://drive.google.com/file/d/15HEskz4jxJ2jWMFoKeaGEZ6aj6wbWTXn/view?usp=drive_link)
+* [デザインイメージ付き仕様書（Google Drive）](https://drive.google.com/file/d/1BWz41_ZBMU5N7ruiHXg2V97be5UMK8Lz/view?usp=drive_link)
 
+## 開発環境でのアプリ起動手順
 
+### ローカル確認用（Docker使用）
 
-以下はアプリ起動の手順
-# 開発環境（ローカル確認）
+```bash
 docker-compose up
+```
 
-# デプロイ
+### デプロイ手順（Heroku）
+
+```bash
 heroku login
 heroku container:login
 docker compose run -e RAILS_ENV=production web bundle exec rails assets:precompile
 heroku container:push web
 heroku container:release web
 heroku restart
+```
 
+### Heroku上でのアセットプリコンパイル
 
-# Heroku上でアセットをプリコンパイル
+```bash
 heroku run rails assets:precompile
+```
