@@ -26,6 +26,7 @@ services:
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
       AWS_REGION: ${AWS_REGION}
       AWS_BUCKET: ${AWS_BUCKET}
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
 
     volumes:
       - type: bind
