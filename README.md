@@ -19,6 +19,7 @@
 * Ruby on Rails
 * Docker
 * Git / GitHub
+* mysql2
 * Heroku（デプロイ）
 * AWS S3（画像の保存）
 
